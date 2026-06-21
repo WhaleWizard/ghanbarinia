@@ -7,9 +7,8 @@ const links = {
 };
 
 const socials = [
-  { name: "Instagram", href: "#" },
-  { name: "Pinterest", href: "#" },
-  { name: "LinkedIn", href: "#" },
+  { name: "Instagram", href: "https://www.instagram.com/ghanbariniauzbekistan" },
+  { name: "Telegram", href: "https://t.me/ghanbariniauzbekistan" },
 ];
 
 export function Footer() {
@@ -24,7 +23,7 @@ export function Footer() {
               GHANBARINIA
             </div>
             <p className="font-['Jost'] text-[13px] leading-[1.8] text-[#FAF8F3]/40 mb-8 max-w-xs">
-              The world's most distinguished Persian carpet house. Private acquisition by appointment across 30+ showrooms worldwide.
+              Ghanbarinia Uzbekistan — handmade Persian silk carpets, private catalogue previews, and acquisition support for Tashkent, Samarkand, Bukhara, and every region.
             </p>
 
             {/* Persian ornament */}
@@ -43,6 +42,8 @@ export function Footer() {
                 <a
                   key={s.name}
                   href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="font-['Jost'] text-[10px] tracking-[0.25em] uppercase text-[#FAF8F3]/30 hover:text-[#B8935A] transition-colors duration-300"
                 >
                   {s.name}
@@ -78,7 +79,7 @@ export function Footer() {
       <div className="border-t border-[rgba(250,248,243,0.05)]">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-16 py-6 flex flex-col lg:flex-row items-center justify-between gap-4">
           <p className="font-['Jost'] text-[10px] tracking-[0.2em] uppercase text-[#FAF8F3]/25">
-            © {new Date().getFullYear()} Ghanbarinia International Ltd. All rights reserved.
+            © {new Date().getFullYear()} Ghanbarinia Uzbekistan. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             {["Privacy Policy", "Terms & Conditions", "Cookie Policy"].map((item) => (
