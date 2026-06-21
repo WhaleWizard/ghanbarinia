@@ -72,37 +72,37 @@ const collections: Collection[] = [
   },
 
   {
-    id: "samarkand-silk",
-    name: "Samarkand Silk Edit",
-    origin: "Curated for Uzbekistan",
-    era: "Contemporary atelier selection",
-    description: "Luminous silk pieces chosen for Tashkent, Samarkand, and Bukhara interiors",
-    knots: "900–1,200 KPSI",
-    material: "Pure silk with jewel-tone dyes",
-    priceRange: "$18,000 – $320,000",
+    id: "mashad",
+    name: "Mashad",
+    origin: "Khorasan, Iran",
+    era: "19th century – present",
+    description: "Grand medallions and saturated ceremonial red fields",
+    knots: "300–600 KPSI",
+    material: "Fine wool, occasional silk accents",
+    priceRange: "$75,000 – $700,000",
     img: "https://images.unsplash.com/photo-1600166898405-da9535204843?w=900&h=1100&fit=crop&auto=format&q=85",
   },
   {
-    id: "bukhara-villas",
-    name: "Bukhara Villa Scale",
-    origin: "Large format curation",
-    era: "New commissions",
-    description: "Oversized statement carpets for salons, hotel lobbies, and reception rooms",
-    knots: "450–850 KPSI",
-    material: "Fine wool, silk contouring",
-    priceRange: "$28,000 – $640,000",
-    img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900&h=1100&fit=crop&auto=format&q=85",
+    id: "heriz",
+    name: "Heriz",
+    origin: "East Azerbaijan, Iran",
+    era: "19th century – present",
+    description: "Bold geometric medallions with collector-grade durability",
+    knots: "120–350 KPSI",
+    material: "Hand-spun wool, vegetable dyes",
+    priceRange: "$45,000 – $420,000",
+    img: "https://images.unsplash.com/photo-1634442747349-3a969d4432df?w=900&h=1100&fit=crop&auto=format&q=85",
   },
   {
-    id: "tashkent-modern",
-    name: "Tashkent Modern Classics",
-    origin: "Modern homes & penthouses",
-    era: "Ready-to-view catalogue",
-    description: "Calmer ivory, indigo, and saffron palettes that stay readable in modern rooms",
-    knots: "300–700 KPSI",
-    material: "Wool-silk blend",
-    priceRange: "$9,000 – $190,000",
-    img: "https://images.unsplash.com/photo-1615873968403-89e068629265?w=900&h=1100&fit=crop&auto=format&q=85",
+    id: "shiraz",
+    name: "Shiraz",
+    origin: "Fars Province, Iran",
+    era: "Nomadic tradition – present",
+    description: "Expressive tribal geometry from the birthplace of the house",
+    knots: "80–250 KPSI",
+    material: "Natural wool, hand-dyed palette",
+    priceRange: "$10,000 – $280,000",
+    img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900&h=1100&fit=crop&auto=format&q=85",
   },
   {
     id: "tribal",
@@ -274,7 +274,7 @@ export function Collections() {
           transition={{ duration: 0.8 }}
         >
           <p className="font-['Jost'] text-[13px] text-[#7A6E5F] mb-6">
-            Expanded Uzbekistan catalogue: silk, wool-silk, oversized salon pieces, and ready-to-view selections
+            Private Uzbekistan catalogue: Iranian silk, wool-silk, oversized salon pieces, and ready-to-view selections
           </p>
           <a
             href="#consultation"

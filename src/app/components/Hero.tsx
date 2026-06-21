@@ -23,8 +23,8 @@ export function Hero() {
         style={{ y: imageY, scale: imageScale }}
       >
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=2200&h=1500&fit=crop&auto=format&q=85"
-          alt="Handmade silk Persian carpet presented in a refined Uzbekistan showroom"
+          src="https://images.unsplash.com/photo-1693332559291-380f10cd2253?w=2200&h=1500&fit=crop&auto=format&q=90"
+          alt="Opulent handmade Qom silk Persian carpet with luminous detail"
           className="w-full h-full object-cover"
         />
       </motion.div>
@@ -52,7 +52,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
           >
-            Uzbekistan Branch · Tashkent
+            Persian Carpet House · Tashkent
           </motion.p>
           <motion.p
             className="hidden lg:block font-['Jost'] text-[10px] tracking-[0.35em] uppercase text-[#FAF8F3]/60"
@@ -60,7 +60,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 1 }}
           >
-            Silk Persian Carpets · Private Catalogue
+            Iranian Silk Masterworks · Private Catalogue
           </motion.p>
         </div>
 
@@ -78,8 +78,8 @@ export function Hero() {
               animate={{ y: "0%" }}
               transition={{ delay: 0.3, duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
             >
-              GHAN
-              <span className="block text-[clamp(16px,2vw,28px)] not-italic tracking-[0.45em] mt-4 text-[#FAF8F3]/75 font-['Jost']">UZBEKISTAN</span>
+              <span className="whitespace-nowrap">GHANBARINIA</span>
+              <span className="block text-[clamp(14px,1.55vw,24px)] not-italic tracking-[0.55em] mt-5 text-[#FAF8F3]/75 font-['Jost']">UZBEKISTAN</span>
             </motion.h1>
           </motion.div>
           <motion.div
@@ -89,12 +89,12 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.1 }}
           >
             <motion.h1
-              className="font-['Playfair_Display'] italic text-[clamp(64px,11vw,160px)] leading-[0.9] tracking-[-0.02em] text-[#B8935A]"
+              className="font-['Playfair_Display'] italic text-[clamp(32px,5vw,78px)] leading-[0.95] tracking-[-0.01em] text-[#B8935A]"
               initial={{ y: "100%" }}
               animate={{ y: "0%" }}
               transition={{ delay: 0.5, duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
             >
-              BARINIA
+              PERSIAN CARPETS
             </motion.h1>
           </motion.div>
 
@@ -105,7 +105,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 1 }}
             >
-              Museum-grade handmade silk Persian carpets for Uzbekistan — curated for refined homes, villas, hotels, and collectors.
+              Museum-grade handmade Persian silk carpets from Iran — curated in Uzbekistan for refined homes, villas, hotels, and collectors.
             </motion.p>
 
             <motion.div

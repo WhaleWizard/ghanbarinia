@@ -47,6 +47,40 @@ const scenes: Scene[] = [
     img: "https://images.unsplash.com/photo-1693332559291-380f10cd2253?w=1400&h=1000&fit=crop&auto=format",
     accent: "#5A3A8B",
   },
+
+  {
+    id: "nain",
+    region: "Isfahan Province",
+    title: "Nain",
+    description:
+      "Nain is prized for disciplined ivory fields, deep indigo medallions and exceptionally fine wool with silk outlining. These carpets bring architectural calm to formal interiors while preserving the precision of central Iranian court aesthetics.",
+    detail: "Fine wool · Silk outlines · 6La and 9La grades",
+    price: "From $65,000",
+    img: "https://images.unsplash.com/photo-1619444978283-cccfb92c357d?w=1400&h=1000&fit=crop&auto=format",
+    accent: "#D9C7A3",
+  },
+  {
+    id: "mashad",
+    region: "Khorasan, Iran",
+    title: "Mashad",
+    description:
+      "Mashad carpets are celebrated for grand scale, saturated madder-red grounds and commanding central medallions. Their formal strength makes them a natural choice for palatial salons, reception halls and large collector rooms.",
+    detail: "Wool pile · Cotton foundation · Grand medallion compositions",
+    price: "From $75,000",
+    img: "https://images.unsplash.com/photo-1600166898405-da9535204843?w=1400&h=1000&fit=crop&auto=format&q=85",
+    accent: "#7B1F24",
+  },
+  {
+    id: "heriz",
+    region: "East Azerbaijan, Iran",
+    title: "Heriz",
+    description:
+      "Heriz represents the bolder geometric school of Persian weaving: angular medallions, powerful outlines and remarkable durability. It adds collector character where a room needs strength rather than delicacy.",
+    detail: "Hand-spun wool · Geometric medallion · Vegetable dyes",
+    price: "From $45,000",
+    img: "https://images.unsplash.com/photo-1634442747349-3a969d4432df?w=1400&h=1000&fit=crop&auto=format",
+    accent: "#8A4A24",
+  },
   {
     id: "isfahan",
     region: "Historic Isfahan",
