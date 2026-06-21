@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const steps = [
   {
@@ -74,13 +75,10 @@ function Step({ step, index }: StepProps) {
         className="lg:w-[55%] relative overflow-hidden flex-shrink-0"
         style={{ x: imgX, aspectRatio: "4/3" }}
       >
-        <img
+        <ImageWithFallback
           src={step.img}
           alt={step.title}
           className="w-full h-full object-cover"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = step.fallback;
-          }}
         />
         {/* Step number overlay */}
         <div className="absolute top-6 left-6">

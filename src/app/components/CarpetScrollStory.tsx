@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "motion/react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface Scene {
   id: string;
@@ -174,7 +175,7 @@ function SceneSlide({ scene, index, total, scrollYProgress }: SceneSlideProps) {
               aspectRatio: "3/4",
             }}
           >
-            <img
+            <ImageWithFallback
               src={scene.img}
               alt={`${scene.title} Persian carpet`}
               className="w-full h-full object-cover"

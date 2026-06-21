@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,7 +22,7 @@ export function Hero() {
         className="absolute inset-0"
         style={{ y: imageY, scale: imageScale }}
       >
-        <img
+        <ImageWithFallback
           src="https://images.unsplash.com/photo-1652634213812-f0deeb1de78e?w=2000&h=1400&fit=crop&auto=format"
           alt="Ghanbarinia master Persian carpet"
           className="w-full h-full object-cover"

@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const stats = [
   { number: "1841", label: "Founded in Shiraz" },
@@ -100,7 +101,7 @@ export function Heritage() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <img
+              <ImageWithFallback
                 src="https://images.unsplash.com/photo-1739715642772-856d28f0c9b2?w=1000&h=750&fit=crop&auto=format"
                 alt="Ghanbarinia showroom interior"
                 className="w-full h-full object-cover"
