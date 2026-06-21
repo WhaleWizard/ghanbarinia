@@ -3,17 +3,17 @@ import { motion } from "motion/react";
 
 const regions = [
   {
-    name: "Europe",
+    name: "Uzbekistan",
     cities: [
-      { city: "Paris", address: "Avenue Montaigne, 8ème" },
-      { city: "London", address: "Mayfair, Grosvenor Square" },
-      { city: "Milan", address: "Via Montenapoleone" },
-      { city: "Geneva", address: "Rue du Rhône" },
-      { city: "Zurich", address: "Bahnhofstrasse" },
-      { city: "Vienna", address: "Kärntner Ring" },
-      { city: "Monaco", address: "Avenue Princesse Grace" },
-      { city: "Amsterdam", address: "P.C. Hooftstraat" },
-      { city: "Frankfurt", address: "Goethestraße" },
+      { city: "Tashkent", address: "Private appointments · Mirabad / City centre" },
+      { city: "Samarkand", address: "Silk Road residence previews" },
+      { city: "Bukhara", address: "Heritage home and hotel projects" },
+      { city: "Andijan", address: "Collector visits by request" },
+      { city: "Fergana", address: "Villa-scale selection service" },
+      { city: "Namangan", address: "Remote catalogue and sample preview" },
+      { city: "Nukus", address: "Regional delivery coordination" },
+      { city: "Karshi", address: "Interior designer consultations" },
+      { city: "Urgench", address: "Private acquisition support" },
     ],
   },
   {
@@ -51,7 +51,7 @@ const regions = [
 ];
 
 export function Showrooms() {
-  const [activeRegion, setActiveRegion] = useState("Europe");
+  const [activeRegion, setActiveRegion] = useState("Uzbekistan");
 
   const currentCities = regions.find((r) => r.name === activeRegion)?.cities || [];
 
@@ -67,7 +67,7 @@ export function Showrooms() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            ◆ Global Presence
+            ◆ Uzbekistan Service
           </motion.p>
           <motion.div
             className="flex flex-col lg:flex-row lg:items-end justify-between gap-8"
@@ -77,11 +77,11 @@ export function Showrooms() {
             transition={{ delay: 0.1, duration: 1 }}
           >
             <h2 className="font-['Playfair_Display'] text-[clamp(36px,4vw,64px)] leading-[1.1] text-[#1A1108]">
-              30+ showrooms.<br />
-              <span className="italic text-[#B8935A]">One world of luxury.</span>
+              Uzbekistan branch.<br />
+              <span className="italic text-[#B8935A]">Nationwide private viewings.</span>
             </h2>
             <p className="font-['Jost'] text-[13px] text-[#7A6E5F] max-w-xs leading-relaxed">
-              From the 8th arrondissement of Paris to the heart of Tokyo's Minami-Aoyama, every Ghanbarinia showroom is designed to provide an intimate, private acquisition experience.
+              From Tashkent to Samarkand and Bukhara, the Uzbekistan branch coordinates curated catalogue previews, Telegram consultations, delivery, and designer support.
             </p>
           </motion.div>
         </div>
@@ -152,17 +152,17 @@ export function Showrooms() {
         >
           <div>
             <p className="font-['Jost'] text-[12px] tracking-[0.15em] text-[#7A6E5F] mb-1">
-              Private viewing by appointment only
+              Uzbekistan viewings by appointment only
             </p>
             <p className="font-['Jost'] text-[12px] text-[#7A6E5F]">
-              Our advisors speak Arabic, English, French, German, Italian, Japanese, Mandarin, Persian, and Russian
+              Our advisors support Uzbek, Russian, English, and Persian requests via Telegram and Instagram
             </p>
           </div>
           <a
-            href="#consultation"
+            href="https://t.me/ghanbariniauzbekistan" target="_blank" rel="noreferrer"
             className="font-['Jost'] text-[11px] tracking-[0.25em] uppercase px-8 py-4 border border-[#1A1108] text-[#1A1108] hover:bg-[#1A1108] hover:text-[#FAF8F3] transition-all duration-500 flex-shrink-0"
           >
-            Book a Viewing
+            Open Telegram
           </a>
         </motion.div>
       </div>

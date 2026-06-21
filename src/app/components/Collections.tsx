@@ -70,6 +70,40 @@ const collections: Collection[] = [
     priceRange: "$65,000 – $600,000",
     img: "https://images.unsplash.com/photo-1619444978283-cccfb92c357d?w=800&h=1000&fit=crop&auto=format",
   },
+
+  {
+    id: "samarkand-silk",
+    name: "Samarkand Silk Edit",
+    origin: "Curated for Uzbekistan",
+    era: "Contemporary atelier selection",
+    description: "Luminous silk pieces chosen for Tashkent, Samarkand, and Bukhara interiors",
+    knots: "900–1,200 KPSI",
+    material: "Pure silk with jewel-tone dyes",
+    priceRange: "$18,000 – $320,000",
+    img: "https://images.unsplash.com/photo-1600166898405-da9535204843?w=900&h=1100&fit=crop&auto=format&q=85",
+  },
+  {
+    id: "bukhara-villas",
+    name: "Bukhara Villa Scale",
+    origin: "Large format curation",
+    era: "New commissions",
+    description: "Oversized statement carpets for salons, hotel lobbies, and reception rooms",
+    knots: "450–850 KPSI",
+    material: "Fine wool, silk contouring",
+    priceRange: "$28,000 – $640,000",
+    img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900&h=1100&fit=crop&auto=format&q=85",
+  },
+  {
+    id: "tashkent-modern",
+    name: "Tashkent Modern Classics",
+    origin: "Modern homes & penthouses",
+    era: "Ready-to-view catalogue",
+    description: "Calmer ivory, indigo, and saffron palettes that stay readable in modern rooms",
+    knots: "300–700 KPSI",
+    material: "Wool-silk blend",
+    priceRange: "$9,000 – $190,000",
+    img: "https://images.unsplash.com/photo-1615873968403-89e068629265?w=900&h=1100&fit=crop&auto=format&q=85",
+  },
   {
     id: "tribal",
     name: "Tribal & Nomadic",
@@ -208,7 +242,7 @@ export function Collections() {
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 1 }}
             >
-              Six traditions.<br />
+              Nine curated lines.<br />
               <span className="italic text-[#B8935A]">One standard of excellence.</span>
             </motion.h2>
           </div>
@@ -240,13 +274,13 @@ export function Collections() {
           transition={{ duration: 0.8 }}
         >
           <p className="font-['Jost'] text-[13px] text-[#7A6E5F] mb-6">
-            Currently presenting over 2,400 authenticated pieces across our 30+ showrooms
+            Expanded Uzbekistan catalogue: silk, wool-silk, oversized salon pieces, and ready-to-view selections
           </p>
           <a
             href="#consultation"
-            className="inline-block font-['Jost'] text-[11px] tracking-[0.25em] uppercase px-10 py-4 border border-[#1A1108] text-[#1A1108] hover:bg-[#1A1108] hover:text-[#FAF8F3] transition-all duration-500"
+            className="premium-button inline-block font-['Jost'] text-[11px] tracking-[0.25em] uppercase px-10 py-4 border border-[#1A1108] text-[#1A1108] hover:bg-[#1A1108] hover:text-[#FAF8F3] transition-all duration-500"
           >
-            Request Private Catalogue
+            Request Uzbekistan Catalogue
           </a>
         </motion.div>
       </div>

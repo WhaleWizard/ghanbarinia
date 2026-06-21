@@ -49,7 +49,7 @@ export function Consultation() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              ◆ Private Acquisition
+              ◆ Uzbekistan Concierge
             </motion.p>
             <motion.h2
               className="font-['Playfair_Display'] text-[clamp(36px,4vw,64px)] leading-[1.1] text-[#FAF8F3] mb-8"
@@ -60,7 +60,7 @@ export function Consultation() {
             >
               Begin your
               <br />
-              <span className="italic text-[#B8935A]">private viewing.</span>
+              <span className="italic text-[#B8935A]">Uzbekistan viewing.</span>
             </motion.h2>
             <motion.p
               className="font-['Jost'] text-[14px] leading-[1.9] text-[#FAF8F3]/55 mb-12"
@@ -69,7 +69,7 @@ export function Consultation() {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              Our acquisition advisors will guide you through our complete collection — in your nearest showroom, or through our exclusive remote consultation service. Every engagement is strictly confidential and entirely without obligation.
+              Our Uzbekistan team will help you choose a silk or wool-silk carpet for your home, villa, office, hotel, or design project. Send measurements, room photos, or inspiration — we will prepare a focused private catalogue.
             </motion.p>
 
             <motion.div
@@ -80,10 +80,10 @@ export function Consultation() {
               transition={{ delay: 0.3, duration: 0.8 }}
             >
               {[
-                ["Private showroom appointment", "Available in 30+ cities worldwide"],
-                ["Remote white-glove consultation", "Video viewing with expert advisor"],
-                ["Home installation preview", "We bring selected pieces to you"],
-                ["Corporate & interior design", "Dedicated project management"],
+                ["Tashkent private appointment", "Curated viewings by request"],
+                ["Telegram and Instagram catalogue", "Fast remote selection for Uzbekistan"],
+                ["Home and villa preview", "Selected pieces matched to your interior"],
+                ["Hotels, offices, designers", "Dedicated project coordination"],
               ].map(([service, note]) => (
                 <div key={service} className="flex items-start gap-4 border-t border-[rgba(250,248,243,0.07)] pt-5">
                   <div className="w-1 h-1 rounded-full bg-[#B8935A] mt-2 flex-shrink-0" />
@@ -159,7 +159,7 @@ export function Consultation() {
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     className="bg-transparent border-b border-[rgba(250,248,243,0.15)] pb-3 text-[#FAF8F3] font-['Jost'] text-[14px] focus:outline-none focus:border-[#B8935A] transition-colors duration-300 placeholder:text-[#FAF8F3]/20"
-                    placeholder="+1 000 000 0000"
+                    placeholder="+998 90 000 00 00"
                   />
                 </div>
 
@@ -193,7 +193,7 @@ export function Consultation() {
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     rows={3}
                     className="bg-transparent border-b border-[rgba(250,248,243,0.15)] pb-3 text-[#FAF8F3] font-['Jost'] text-[14px] focus:outline-none focus:border-[#B8935A] transition-colors duration-300 resize-none placeholder:text-[#FAF8F3]/20"
-                    placeholder="Tell us what you are looking for..."
+                    placeholder="City, room size, preferred colours, silk/wool, and budget..."
                   />
                 </div>
 
@@ -204,10 +204,10 @@ export function Consultation() {
                     whileHover={{ letterSpacing: "0.4em" }}
                     transition={{ duration: 0.3 }}
                   >
-                    Request Private Viewing
+                    Request Uzbekistan Catalogue
                   </motion.button>
                   <p className="font-['Jost'] text-[10px] text-[#FAF8F3]/25 text-center mt-4">
-                    All enquiries are strictly confidential. No obligation to purchase.
+                    You can also write directly: @ghanbariniauzbekistan
                   </p>
                 </div>
               </form>

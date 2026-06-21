@@ -12,19 +12,19 @@ export function Hero() {
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.8], [0.45, 0.75]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.8], [0.58, 0.78]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative h-screen overflow-hidden bg-[#1A1108]">
+    <section ref={ref} className="relative min-h-[760px] h-screen overflow-hidden bg-[#1A1108]">
       {/* Parallax image */}
       <motion.div
         className="absolute inset-0"
         style={{ y: imageY, scale: imageScale }}
       >
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1652634213812-f0deeb1de78e?w=2000&h=1400&fit=crop&auto=format"
-          alt="Ghanbarinia master Persian carpet"
+          src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=2200&h=1500&fit=crop&auto=format&q=85"
+          alt="Handmade silk Persian carpet presented in a refined Uzbekistan showroom"
           className="w-full h-full object-cover"
         />
       </motion.div>
@@ -34,6 +34,7 @@ export function Hero() {
         className="absolute inset-0 bg-[#1A1108]"
         style={{ opacity: overlayOpacity }}
       />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_58%,rgba(184,147,90,0.30),transparent_30%),linear-gradient(90deg,rgba(18,13,7,0.92)_0%,rgba(18,13,7,0.68)_42%,rgba(18,13,7,0.28)_100%)]" />
 
       {/* Gradient bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#FAF8F3] to-transparent" />
@@ -51,7 +52,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
           >
-            Est. 1841 · Shiraz to Dubai
+            Uzbekistan Branch · Tashkent
           </motion.p>
           <motion.p
             className="hidden lg:block font-['Jost'] text-[10px] tracking-[0.35em] uppercase text-[#FAF8F3]/60"
@@ -59,7 +60,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 1 }}
           >
-            Heritage Carpet Collection · 84 Galleries
+            Silk Persian Carpets · Private Catalogue
           </motion.p>
         </div>
 
@@ -78,6 +79,7 @@ export function Hero() {
               transition={{ delay: 0.3, duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
             >
               GHAN
+              <span className="block text-[clamp(16px,2vw,28px)] not-italic tracking-[0.45em] mt-4 text-[#FAF8F3]/75 font-['Jost']">UZBEKISTAN</span>
             </motion.h1>
           </motion.div>
           <motion.div
@@ -103,27 +105,28 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 1 }}
             >
-              Museum-grade handmade Persian carpets,<br />
-              curated as woven heritage for collectors and interiors.
+              Museum-grade handmade silk Persian carpets for Uzbekistan — curated for refined homes, villas, hotels, and collectors.
             </motion.p>
 
             <motion.div
-              className="flex items-center gap-8"
+              className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.3, duration: 1 }}
             >
               <a
                 href="#collections"
-                className="font-['Jost'] text-[11px] tracking-[0.25em] uppercase px-8 py-4 bg-[#FAF8F3] text-[#1A1108] hover:bg-[#B8935A] hover:text-[#FAF8F3] transition-all duration-500"
+                className="premium-button font-['Jost'] text-[11px] tracking-[0.22em] uppercase px-8 py-4 bg-[#FAF8F3] text-[#1A1108] hover:bg-[#B8935A] hover:text-[#FAF8F3] transition-all duration-500 shadow-[0_18px_45px_rgba(0,0,0,0.28)]"
               >
-                Explore the Galleries
+                Open Catalogue
               </a>
               <a
-                href="#heritage"
-                className="font-['Jost'] text-[11px] tracking-[0.25em] uppercase text-[#FAF8F3]/70 hover:text-[#FAF8F3] transition-colors duration-300 flex items-center gap-3"
+                href="https://www.instagram.com/ghanbariniauzbekistan"
+                target="_blank"
+                rel="noreferrer"
+                className="font-['Jost'] text-[11px] tracking-[0.22em] uppercase px-7 py-4 border border-[#FAF8F3]/35 bg-[#1A1108]/35 text-[#FAF8F3] backdrop-blur-sm hover:border-[#B8935A] hover:text-[#B8935A] transition-all duration-300 flex items-center justify-center gap-3"
               >
-                Our Story
+                Instagram
                 <svg width="20" height="1" viewBox="0 0 20 1" fill="none">
                   <line x1="0" y1="0.5" x2="20" y2="0.5" stroke="currentColor" />
                 </svg>
