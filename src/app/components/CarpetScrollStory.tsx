@@ -99,9 +99,11 @@ function SceneSlide({ scene, index, total, scrollYProgress }: SceneSlideProps) {
     [start, entryEnd, exitStart, end],
     [-100, 0, 0, -80]
   );
+  const textOpacityEntryEnd = start + seg * 0.22;
+  const textOpacityExitStart = Math.min(exitStart + seg * 0.08, end);
   const textOpacity = useTransform(
     scrollYProgress,
-    [start, entryEnd * 0.8, exitStart + 0.02, end],
+    [start, textOpacityEntryEnd, textOpacityExitStart, end],
     [0, 1, 1, 0]
   );
   const imgX = useTransform(
