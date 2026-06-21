@@ -50,7 +50,7 @@ export function Navigation() {
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-6">
             <span className="font-['Jost'] text-[10px] tracking-[0.2em] uppercase text-[#7A6E5F]">
-              +7 495 123 45 67
+              Dubai · Private Appointment
             </span>
             <a
               href="#consultation"

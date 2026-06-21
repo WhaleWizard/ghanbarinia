@@ -1,11 +1,12 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const stats = [
-  { number: "60+", label: "Years of Mastery" },
-  { number: "30+", label: "Global Showrooms" },
-  { number: "15,000+", label: "Unique Pieces" },
-  { number: "80+", label: "Countries Served" },
+  { number: "1841", label: "Founded in Shiraz" },
+  { number: "84", label: "Heritage Galleries" },
+  { number: "Dubai", label: "Flagship Presence" },
+  { number: "Museum", label: "Woven Treasures" },
 ];
 
 function AnimatedStat({ number, label, delay }: { number: string; label: string; delay: number }) {
@@ -56,7 +57,7 @@ export function Heritage() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
-              Six decades of Persian carpet excellence
+              A Persian carpet dynasty since 1841
             </motion.h2>
 
             <motion.p
@@ -65,7 +66,7 @@ export function Heritage() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.15, duration: 1 }}
             >
-              Founded in 1965 in Tehran, Ghanbarinia has grown from a single atelier into the world's most respected Persian carpet house. For three generations, our family has maintained an uncompromising standard: only the finest hand-knotted pieces from Iran's master weavers reach our showrooms.
+              Ghanbarinia, also presented internationally as Heritage Carpet by Ghanbarinia, traces its story to Shiraz in 1841. The house is known for an unusually deep archive of handmade Persian carpets, natural fibres, pure silk and wool, and a gallery-led way of presenting each piece as cultural patrimony rather than decoration.
             </motion.p>
 
             <motion.p
@@ -74,7 +75,7 @@ export function Heritage() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.25, duration: 1 }}
             >
-              Each carpet in our collection is authenticated by our experts and sourced directly from the ancient weaving centres of Tabriz, Kashan, Isfahan, Qom, Nain and Kerman — cities whose names are synonymous with the highest art of carpet making.
+              Public brand materials highlight the Heritage Carpet Collection, Dubai showrooms including The Dubai Mall and Goshi Warehouse, and the Culture of Woven Treasures museum exhibition. This site direction translates that world into a cinematic collector experience: quiet luxury, provenance, expert guidance, and reverence for Iranian weaving schools.
             </motion.p>
 
             <motion.a
@@ -100,7 +101,7 @@ export function Heritage() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <img
+              <ImageWithFallback
                 src="https://images.unsplash.com/photo-1739715642772-856d28f0c9b2?w=1000&h=750&fit=crop&auto=format"
                 alt="Ghanbarinia showroom interior"
                 className="w-full h-full object-cover"
@@ -108,7 +109,7 @@ export function Heritage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1108]/20 to-transparent" />
               <div className="absolute bottom-6 left-6">
                 <span className="font-['Jost'] text-[10px] tracking-[0.3em] uppercase text-[#FAF8F3]/80 bg-[#1A1108]/50 backdrop-blur-sm px-3 py-1.5">
-                  Paris Showroom, 8ème Arrondissement
+                  Dubai Gallery · Heritage Carpet Collection
                 </span>
               </div>
             </motion.div>

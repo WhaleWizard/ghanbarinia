@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const pieces = [
   {
@@ -99,13 +100,13 @@ export function Masterworks() {
               >
                 <div className="flex-shrink-0 w-16 lg:w-20">
                   <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                    <motion.img
-                      src={piece.img}
-                      alt={piece.name}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.5 }}
-                    />
+                    <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.5 }} className="w-full h-full">
+                      <ImageWithFallback
+                        src={piece.img}
+                        alt={piece.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </motion.div>
                   </div>
                 </div>
 

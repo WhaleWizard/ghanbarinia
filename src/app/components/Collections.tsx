@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface Collection {
   id: string;
@@ -117,13 +118,17 @@ function CollectionCard({ item, index }: { item: Collection; index: number }) {
     >
       {/* Image container */}
       <div className="relative overflow-hidden mb-6" style={{ aspectRatio: "3/4" }}>
-        <motion.img
-          src={item.img}
-          alt={`${item.name} Persian carpet`}
-          className="w-full h-full object-cover"
+        <motion.div
+          className="w-full h-full"
           animate={{ scale: hovered ? 1.06 : 1 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        />
+        >
+          <ImageWithFallback
+            src={item.img}
+            alt={`${item.name} Persian carpet`}
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
 
         {/* Overlay on hover */}
         <motion.div
