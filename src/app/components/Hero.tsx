@@ -50,7 +50,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
           >
-            Since 1965 · The Art of Persian Weaving
+            Est. 1841 · Shiraz to Dubai
           </motion.p>
           <motion.p
             className="hidden lg:block font-['Jost'] text-[10px] tracking-[0.35em] uppercase text-[#FAF8F3]/60"
@@ -58,7 +58,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 1 }}
           >
-            30+ Showrooms Worldwide
+            Heritage Carpet Collection · 84 Galleries
           </motion.p>
         </div>
 
@@ -102,8 +102,8 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 1 }}
             >
-              The world's finest hand-knotted Persian carpets,<br />
-              curated from the ancient ateliers of Iran.
+              Museum-grade handmade Persian carpets,<br />
+              curated as woven heritage for collectors and interiors.
             </motion.p>
 
             <motion.div
@@ -116,7 +116,7 @@ export function Hero() {
                 href="#collections"
                 className="font-['Jost'] text-[11px] tracking-[0.25em] uppercase px-8 py-4 bg-[#FAF8F3] text-[#1A1108] hover:bg-[#B8935A] hover:text-[#FAF8F3] transition-all duration-500"
               >
-                View Collections
+                Explore the Galleries
               </a>
               <a
                 href="#heritage"

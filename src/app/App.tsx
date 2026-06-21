@@ -4,6 +4,7 @@ import { Hero } from "./components/Hero";
 import { MarqueeBar } from "./components/MarqueeBar";
 import { Heritage } from "./components/Heritage";
 import { CarpetScrollStory } from "./components/CarpetScrollStory";
+import { DesignDirection } from "./components/DesignDirection";
 import { Collections } from "./components/Collections";
 import { Craftsmanship } from "./components/Craftsmanship";
 import { Masterworks } from "./components/Masterworks";
@@ -19,6 +20,7 @@ export default function App() {
         <Hero />
         <MarqueeBar />
         <Heritage />
+        <DesignDirection />
         <CarpetScrollStory />
         <Collections />
         <Craftsmanship />
