@@ -166,7 +166,8 @@ const en = {
     densityLabel: "Density",
     footnote:
       "Every piece is hand-knotted and one of a kind. What you see here is a sample of the catalogue — the showroom holds considerably more.",
-    cta: "Request the full catalogue",
+    cta: "See the full catalogue",
+    trackLabel: "Weaving traditions, scrolls sideways",
     items: [
       {
         id: "tabriz",
@@ -377,6 +378,58 @@ const en = {
       "We have your request. A Ghanbarinia advisor will be in touch shortly. If it is urgent, message us on Telegram.",
   },
 
+  catalogue: {
+    metaTitle: "Catalogue — Ghanbarinia Uzbekistan",
+    metaDescription:
+      "The full Ghanbarinia catalogue: hand-knotted Persian carpets from Tabriz, Kashan, Isfahan, Qom, Nain, Mashhad, Heriz and Shiraz. Filter by city, material, size and colour.",
+    back: "Back to the site",
+    label: "◆ The catalogue",
+    titleLine1: "The whole",
+    titleLine2: "collection.",
+    intro:
+      "Every piece is hand-knotted, so every piece exists once. Narrow it down by city, material, size or colour — anything you mark can be unrolled for you in the Tashkent gallery.",
+    filters: "Filters",
+    hideFilters: "Hide filters",
+    sort: "Sort",
+    sortNewest: "Newest first",
+    sortDensity: "Density: highest first",
+    sortAreaDesc: "Size: largest first",
+    sortAreaAsc: "Size: smallest first",
+    sortTradition: "City: A to Z",
+    traditionLabel: "City",
+    materialLabel: "Material",
+    sizeLabel: "Size",
+    colourLabel: "Colour",
+    densityLabel: "Density",
+    reset: "Clear all",
+    shown: "Showing {shown} of {total}",
+    showMore: "Show more",
+    empty: "Nothing matches that combination.",
+    emptyAction: "Clear the filters",
+    antique: "Antique",
+    priceOnRequest: "Price on request",
+    ask: "Ask about this carpet",
+    materials: {
+      silk: "Pure silk",
+      "wool-silk": "Wool and silk",
+      wool: "Wool",
+    },
+    colours: {
+      red: "Red",
+      blue: "Blue",
+      ivory: "Ivory",
+      green: "Green",
+      gold: "Gold",
+      multi: "Multicolour",
+    },
+    sizes: {
+      small: "Up to 3 m²",
+      medium: "3–8 m²",
+      large: "8–15 m²",
+      palace: "Over 15 m²",
+    },
+  },
+
   footer: {
     about:
       "Ghanbarinia Uzbekistan — hand-knotted Persian carpets from a house founded in 1841. Every piece is singular. The only gallery in Central Asia.",
@@ -534,7 +587,8 @@ const ru: Dictionary = {
     densityLabel: "Плотность",
     footnote:
       "Каждый ковёр связан вручную и существует в единственном экземпляре. Здесь показана часть каталога — в галерее их заметно больше.",
-    cta: "Запросить полный каталог",
+    cta: "Увидеть полный каталог",
+    trackLabel: "Ковровые традиции, листается вбок",
     items: [
       {
         id: "tabriz",
@@ -743,6 +797,58 @@ const ru: Dictionary = {
     thanksTitle: "Спасибо",
     thanksText:
       "Заявка у нас. Консультант Ghanbarinia свяжется с вами в ближайшее время. Если вопрос срочный — напишите в Telegram.",
+  },
+
+  catalogue: {
+    metaTitle: "Каталог — Ghanbarinia Uzbekistan",
+    metaDescription:
+      "Полный каталог Ghanbarinia: персидские ковры ручной работы из Тебриза, Кашана, Исфахана, Кума, Наина, Мешхеда, Хериза и Шираза. Фильтры по городу, материалу, размеру и цвету.",
+    back: "Вернуться на сайт",
+    label: "◆ Каталог",
+    titleLine1: "Вся",
+    titleLine2: "коллекция.",
+    intro:
+      "Каждый ковёр связан вручную, поэтому каждый существует в единственном экземпляре. Сузьте выбор по городу, материалу, размеру или цвету — любой отмеченный ковёр развернём для вас в ташкентской галерее.",
+    filters: "Фильтры",
+    hideFilters: "Скрыть фильтры",
+    sort: "Сортировка",
+    sortNewest: "Сначала новые",
+    sortDensity: "Плотность: сначала выше",
+    sortAreaDesc: "Размер: сначала большие",
+    sortAreaAsc: "Размер: сначала меньшие",
+    sortTradition: "Город: А–Я",
+    traditionLabel: "Город",
+    materialLabel: "Материал",
+    sizeLabel: "Размер",
+    colourLabel: "Цвет",
+    densityLabel: "Плотность",
+    reset: "Сбросить всё",
+    shown: "Показано {shown} из {total}",
+    showMore: "Показать ещё",
+    empty: "Под такое сочетание ничего не нашлось.",
+    emptyAction: "Сбросить фильтры",
+    antique: "Антиквариат",
+    priceOnRequest: "Цена по запросу",
+    ask: "Спросить про этот ковёр",
+    materials: {
+      silk: "Чистый шёлк",
+      "wool-silk": "Шерсть и шёлк",
+      wool: "Шерсть",
+    },
+    colours: {
+      red: "Красный",
+      blue: "Синий",
+      ivory: "Слоновая кость",
+      green: "Зелёный",
+      gold: "Золотой",
+      multi: "Многоцветный",
+    },
+    sizes: {
+      small: "До 3 м²",
+      medium: "3–8 м²",
+      large: "8–15 м²",
+      palace: "Больше 15 м²",
+    },
   },
 
   footer: {

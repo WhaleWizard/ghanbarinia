@@ -35,7 +35,13 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
+interface ProviderProps {
+  children: ReactNode;
+  /** The catalogue page writes its own title, so it opts out of this. */
+  managesMeta?: boolean;
+}
+
+export function LanguageProvider({ children, managesMeta = true }: ProviderProps) {
   const [language, setLanguageState] = useState<Language>(DEFAULT_LANGUAGE);
 
   // Runs after mount so the first paint matches the server-rendered markup.
@@ -46,8 +52,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // Keep the tab title, the meta description and the OG tags in step with the
   // chosen language — messenger previews read these, not the page body.
   useEffect(() => {
-    const copy = dictionaries[language];
     document.documentElement.lang = language;
+    if (!managesMeta) return;
+
+    const copy = dictionaries[language];
     document.title = copy.meta.title;
 
     const setMeta = (selector: string, value: string) => {
@@ -56,7 +64,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     setMeta('meta[name="description"]', copy.meta.description);
     setMeta('meta[property="og:title"]', copy.meta.title);
     setMeta('meta[property="og:description"]', copy.meta.description);
-  }, [language]);
+  }, [language, managesMeta]);
 
   const setLanguage = useCallback((next: Language) => {
     setLanguageState(next);

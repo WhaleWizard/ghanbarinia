@@ -20,5 +20,14 @@ export default defineConfig({
     // Inline only tiny assets; carpet photos must stay separate files so the
     // browser can cache them and load them lazily.
     assetsInlineLimit: 2048,
+    rollupOptions: {
+      // Two real pages rather than a client-side router: GitHub Pages then
+      // serves /catalog.html directly, with no 404 redirect trick, and the
+      // front page never downloads the catalogue code.
+      input: {
+        main: path.resolve(rootDir, "index.html"),
+        catalog: path.resolve(rootDir, "catalog.html"),
+      },
+    },
   },
 })

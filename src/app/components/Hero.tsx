@@ -38,7 +38,9 @@ export function Hero() {
             src={`${BASE}img/hero/showroom-silk-mobile.webp`}
             alt="Handmade Persian silk carpets from the Ghanbarinia collection"
             className="h-full w-full object-cover"
-            fetchPriority="high"
+            /* React 18 does not map the camelCase prop, so the attribute is
+               set in lowercase to actually reach the browser. */
+            {...{ fetchpriority: "high" }}
             decoding="async"
             draggable={false}
           />

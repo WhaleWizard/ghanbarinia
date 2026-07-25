@@ -68,6 +68,15 @@
 }
 
 @layer components {
+  /* Horizontal tracks scroll by touch and trackpad but must not show a bar. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   .premium-button {
     position: relative;
     isolation: isolate;
