@@ -121,7 +121,9 @@ function CarpetCard({ carpet, index }: { carpet: Carpet; index: number }) {
           <dt className="font-['Jost'] text-[9px] uppercase tracking-[0.22em] text-[#7A6E5F]/70">
             {t.catalogue.densityLabel}
           </dt>
-          <dd className="font-['Jost'] text-[12px] text-[#1A1108]">{carpet.knots} KPSI</dd>
+          <dd className="font-['Jost'] text-[12px] text-[#1A1108]">
+            {carpet.knots} {t.catalogue.knotUnit}
+          </dd>
         </div>
       </dl>
 

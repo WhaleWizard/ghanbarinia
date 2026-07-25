@@ -159,16 +159,18 @@ const en = {
 
   collections: {
     label: "◆ The catalogue",
-    titleLine1: "Eight traditions.",
-    titleLine2: "No two alike.",
+    titleLine1: "The carpets",
+    titleLine2: "in the gallery now.",
     intro:
-      "The cities give you the romance; this is the practical part. Each tradition has its own material, density and temperament — here is which one suits which room.",
+      "Part of what is unrolled in Tashkent today. Every piece is hand-knotted and exists once, so the size, the material and the knot density are listed on each one.",
     materialLabel: "Material",
     densityLabel: "Density",
     footnote:
-      "Every piece is hand-knotted and one of a kind. What you see here is a sample of the catalogue — the showroom holds considerably more.",
+      "Another {count} pieces are in the gallery, from small formats to palace sizes.",
     cta: "See the full catalogue",
-    trackLabel: "Weaving traditions, scrolls sideways",
+    trackLabel: "Carpets in the gallery, scrolls sideways",
+    sizeLabel: "Size",
+    ask: "Request the price",
     items: [
       {
         id: "tabriz",
@@ -401,6 +403,7 @@ const en = {
     sizeLabel: "Size",
     colourLabel: "Colour",
     densityLabel: "Density",
+    knotUnit: "KPSI",
     reset: "Clear all",
     shown: "Showing {shown} of {total}",
     showMore: "Show more",
@@ -580,16 +583,18 @@ const ru: Dictionary = {
 
   collections: {
     label: "◆ Каталог",
-    titleLine1: "Восемь традиций.",
-    titleLine2: "Двух одинаковых нет.",
+    titleLine1: "Ковры, которые",
+    titleLine2: "сейчас в галерее.",
     intro:
-      "Города — это про красоту, а это практическая часть. У каждой традиции свой материал, плотность и характер: здесь видно, какая подойдёт вашей комнате.",
+      "Часть того, что лежит в галерее в Ташкенте прямо сейчас. Каждый ковёр — ручная работа в единственном экземпляре, поэтому у каждого указаны размер, материал и плотность узла.",
     materialLabel: "Материал",
     densityLabel: "Плотность",
     footnote:
-      "Каждый ковёр связан вручную и существует в единственном экземпляре. Здесь показана часть каталога — в галерее их заметно больше.",
+      "В галерее ещё {count} ковров — от небольших до дворцовых форматов.",
     cta: "Увидеть полный каталог",
-    trackLabel: "Ковровые традиции, листается вбок",
+    trackLabel: "Ковры в галерее, листается вбок",
+    sizeLabel: "Размер",
+    ask: "Запросить цену",
     items: [
       {
         id: "tabriz",
@@ -822,6 +827,7 @@ const ru: Dictionary = {
     sizeLabel: "Размер",
     colourLabel: "Цвет",
     densityLabel: "Плотность",
+    knotUnit: "узлов/дюйм²",
     reset: "Сбросить всё",
     shown: "Показано {shown} из {total}",
     showMore: "Показать ещё",
