@@ -88,15 +88,22 @@ export function Heritage() {
               {t.heritage.p3}
             </motion.p>
 
+            {/* Was a bare line of small caps with a rule after it, which read
+                as a caption rather than something you could click. */}
             <motion.a
               href="#craftsmanship"
-              className="group inline-flex items-center gap-4 font-['Jost'] text-[11px] uppercase tracking-[0.22em] text-[#1A1108] transition-colors duration-300 hover:text-[#B8935A]"
+              className="group inline-flex items-center gap-3 border border-[#1A1108] px-7 py-4 font-['Jost'] text-[11px] uppercase tracking-[0.2em] text-[#1A1108] transition-colors duration-300 hover:bg-[#1A1108] hover:text-[#FAF8F3]"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 0.35, duration: 0.8 }}
             >
               {t.heritage.link}
-              <span className="block h-px w-12 bg-current transition-all duration-300 group-hover:w-20" />
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                →
+              </span>
             </motion.a>
           </div>
 

@@ -97,9 +97,11 @@ export function Hero() {
           </motion.div>
 
           <motion.h1
-            /* Lower bound was 54px, which overflowed the screen on a 390px
-               phone — the second line alone needed ~400px. */
-            className="max-w-[980px] font-['Playfair_Display'] text-[clamp(40px,9.4vw,142px)] leading-[0.92] tracking-[-0.045em] text-[#FAF8F3] [text-shadow:0_2px_30px_rgba(0,0,0,0.55)]"
+            /* The floor is 34px, not 54px as it was originally: at 54px a
+               single line needed ~400px and wrapped, turning a two-line
+               headline into three. Each line is its own block, so with copy
+               this short the headline can only ever be two lines. */
+            className="max-w-[980px] font-['Playfair_Display'] text-[clamp(34px,8.4vw,142px)] leading-[0.95] tracking-[-0.04em] text-[#FAF8F3] [text-shadow:0_2px_30px_rgba(0,0,0,0.55)]"
             initial={{ opacity: 0, y: 44 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}

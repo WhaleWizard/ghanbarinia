@@ -75,13 +75,15 @@ function Frame({
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="mb-5 flex items-center gap-4">
-            <span className="font-['Jost'] text-[10px] tracking-[0.3em] text-[#D9B46A]">
+          <div className="mb-5 flex items-center gap-3 lg:gap-4">
+            {/* shrink-0 + nowrap: a long region name was squeezing the counter
+                until "01 / 08" broke across two lines. */}
+            <span className="shrink-0 whitespace-nowrap font-['Jost'] text-[10px] tracking-[0.3em] text-[#D9B46A]">
               {String(index + 1).padStart(2, "0")}
               <span className="text-[#FAF8F3]/35"> / {String(total).padStart(2, "0")}</span>
             </span>
-            <span className="h-px w-10 bg-[#D9B46A]/60" />
-            <span className="font-['Jost'] text-[10px] uppercase tracking-[0.28em] text-[#FAF8F3]/60">
+            <span className="h-px w-6 shrink-0 bg-[#D9B46A]/60 lg:w-10" />
+            <span className="font-['Jost'] text-[10px] uppercase leading-relaxed tracking-[0.2em] text-[#FAF8F3]/60 lg:tracking-[0.28em]">
               {region}
             </span>
           </div>
@@ -98,11 +100,19 @@ function Frame({
             {detail}
           </p>
 
+          {/* Reads as a button, not as a caption: solid fill, arrow, and a
+              label that names an action rather than a state. */}
           <a
             href="#consultation"
-            className="inline-block border border-[#FAF8F3]/30 bg-[#080604]/40 px-7 py-3.5 font-['Jost'] text-[10px] uppercase tracking-[0.2em] text-[#FAF8F3] backdrop-blur-sm transition-colors duration-300 hover:border-[#D9B46A] hover:text-[#D9B46A]"
+            className="group inline-flex items-center gap-3 bg-[#FAF8F3] px-7 py-3.5 font-['Jost'] text-[10px] uppercase tracking-[0.2em] text-[#100B06] transition-colors duration-300 hover:bg-[#E0BC75]"
           >
             {cta}
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            >
+              →
+            </span>
           </a>
         </motion.div>
       </div>
@@ -135,7 +145,7 @@ export function CarpetScrollStory() {
             detail={scene.detail}
             image={visual.image}
             accent={visual.accent}
-            cta={t.schools.priceOnRequest}
+            cta={t.schools.cta}
           />
         );
       })}
