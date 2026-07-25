@@ -71,7 +71,8 @@ const en = {
 
   heritage: {
     label: "◆ The house",
-    title: "Five generations since 1841",
+    titleLine1: "Five generations",
+    titleLine2: "since 1841.",
     p1: "The Ghanbarinia family began trading carpets in Shiraz in 1841 and has not stopped since — five generations, one trade. What the house is known for is the selection: buyers who know the workshops personally, and who reject far more than they take.",
     p2: "Trading internationally as Heritage Carpet by Ghanbarinia, the house keeps more than thirty galleries around the world, with the flagship inside The Dubai Mall. Its antique collection has been shown at the Burj Al Arab and Atlantis The Royal.",
     p3: "Tashkent is the only Ghanbarinia gallery in Central Asia. It exists so that a carpet can be chosen the way it should be — unrolled, in daylight, in front of you.",
@@ -336,10 +337,10 @@ const en = {
 
   showroom: {
     label: "◆ The gallery",
-    titleLine1: "One gallery.",
-    titleLine2: "In Tashkent.",
+    titleLine1: "The first gallery",
+    titleLine2: "in Central Asia.",
     intro:
-      "Ghanbarinia keeps more than thirty galleries around the world. In Central Asia there is one. Photographs cannot show you how silk changes colour when you move — that is the whole reason to come in.",
+      "Ghanbarinia keeps more than thirty galleries around the world. In Central Asia there is one, and it is in Tashkent, on the second floor of Tashkent City Mall. No photograph shows how silk turns colour as you move past it, which is the entire reason to come and stand in front of it.",
     addressLabel: "Address",
     address: "Tashkent City Mall, 2nd floor, Tashkent",
     directions: "Open in Maps",
@@ -358,8 +359,8 @@ const en = {
 
   consultation: {
     label: "◆ Get in touch",
-    titleLine1: "Tell us about",
-    titleLine2: "the room.",
+    titleLine1: "We are here to help",
+    titleLine2: "you choose.",
     intro:
       "Size, light, the colours already in the space. We put a short selection together and hold those pieces for your visit — no obligation, and no pressure once you are here.",
     name: "Name",
@@ -384,8 +385,7 @@ const en = {
       "The full Ghanbarinia catalogue: hand-knotted Persian carpets from Tabriz, Kashan, Isfahan, Qom, Nain, Mashhad, Heriz and Shiraz. Filter by city, material, size and colour.",
     back: "Back to the site",
     label: "◆ The catalogue",
-    titleLine1: "The whole",
-    titleLine2: "collection.",
+    title: "The whole collection.",
     intro:
       "Every piece is hand-knotted, so every piece exists once. Narrow it down by city, material, size or colour — anything you mark can be unrolled for you in the Tashkent gallery.",
     filters: "Filters",
@@ -492,7 +492,8 @@ const ru: Dictionary = {
 
   heritage: {
     label: "◆ О доме",
-    title: "Пять поколений с 1841 года",
+    titleLine1: "Пять поколений",
+    titleLine2: "с 1841 года.",
     p1: "Семья Ганбариния начала торговать коврами в Ширазе в 1841 году и не останавливалась с тех пор — пять поколений, одно дело. Дом известен прежде всего отбором: закупщики знают мастерские лично и отказываются от гораздо большего, чем берут.",
     p2: "На международном рынке дом работает под именем Heritage Carpet by Ghanbarinia: более тридцати галерей по всему миру, флагман — в The Dubai Mall. Антикварное собрание дома выставлялось в Burj Al Arab и Atlantis The Royal.",
     p3: "Ташкент — единственная галерея Ghanbarinia в Средней Азии. Она существует, чтобы ковёр можно было выбрать так, как и следует: развёрнутым, при дневном свете, прямо перед вами.",
@@ -757,10 +758,10 @@ const ru: Dictionary = {
 
   showroom: {
     label: "◆ Галерея",
-    titleLine1: "Одна галерея.",
-    titleLine2: "В Ташкенте.",
+    titleLine1: "Первая галерея",
+    titleLine2: "в Средней Азии.",
     intro:
-      "У Ghanbarinia больше тридцати галерей по миру. В Средней Азии — одна. Ни одна фотография не передаст, как шёлк перетекает в цвете, когда вы проходите мимо, — ради этого и стоит прийти.",
+      "У Ghanbarinia больше тридцати галерей по миру. В Средней Азии она одна — в Ташкенте, на втором этаже ТРЦ Tashkent City Mall. Ни одна фотография не передаст, как шёлк перетекает в цвете, когда вы проходите мимо, — ради этого и стоит прийти.",
     addressLabel: "Адрес",
     address: "Ташкент, ТРЦ Tashkent City Mall, 2 этаж",
     directions: "Открыть на карте",
@@ -779,8 +780,8 @@ const ru: Dictionary = {
 
   consultation: {
     label: "◆ Связаться",
-    titleLine1: "Расскажите",
-    titleLine2: "про комнату.",
+    titleLine1: "Готовы помочь",
+    titleLine2: "в вашем выборе.",
     intro:
       "Размер, свет, цвета, которые уже есть в интерьере. Мы соберём короткую подборку и придержим эти ковры к вашему визиту.",
     name: "Имя",
@@ -805,8 +806,7 @@ const ru: Dictionary = {
       "Полный каталог Ghanbarinia: персидские ковры ручной работы из Тебриза, Кашана, Исфахана, Кума, Наина, Мешхеда, Хериза и Шираза. Фильтры по городу, материалу, размеру и цвету.",
     back: "Вернуться на сайт",
     label: "◆ Каталог",
-    titleLine1: "Вся",
-    titleLine2: "коллекция.",
+    title: "Вся коллекция.",
     intro:
       "Каждый ковёр связан вручную, поэтому каждый существует в единственном экземпляре. Сузьте выбор по городу, материалу, размеру или цвету — любой отмеченный ковёр развернём для вас в ташкентской галерее.",
     filters: "Фильтры",

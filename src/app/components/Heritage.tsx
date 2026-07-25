@@ -58,7 +58,9 @@ export function Heritage() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             >
-              {t.heritage.title}
+              {t.heritage.titleLine1}
+              <br />
+              <span className="italic text-[#B8935A]">{t.heritage.titleLine2}</span>
             </motion.h2>
 
             <motion.p

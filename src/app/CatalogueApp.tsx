@@ -292,10 +292,9 @@ function Catalogue() {
           {t.catalogue.label}
         </p>
         <div className="mb-12 flex flex-col justify-between gap-8 lg:mb-16 lg:flex-row lg:items-end">
-          <h1 className="font-['Playfair_Display'] text-[clamp(34px,4vw,64px)] leading-[1.1]">
-            {t.catalogue.titleLine1}
-            <br />
-            <span className="italic text-[#B8935A]">{t.catalogue.titleLine2}</span>
+          {/* Deliberately one line — it used to break after the first word. */}
+          <h1 className="font-['Playfair_Display'] text-[clamp(30px,4vw,64px)] leading-[1.1]">
+            {t.catalogue.title}
           </h1>
           <p className="max-w-md font-['Jost'] text-[14px] leading-[1.8] text-[#7A6E5F]">
             {t.catalogue.intro}

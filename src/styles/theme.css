@@ -77,6 +77,41 @@
     display: none;
   }
 
+  /**
+   * The catalogue carousel.
+   *
+   * On a phone the active card is centred — pinned to the left edge, the
+   * previous card's text spilled into view and looked broken. On a desktop
+   * there is room for three cards, so the row keeps the normal page margin
+   * instead of centring a single card in a sea of empty space.
+   */
+  .carpet-track {
+    --card: min(86vw, 400px);
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-inline: calc(50% - var(--card) / 2);
+    scroll-snap-type: x mandatory;
+  }
+
+  .carpet-track > * {
+    width: var(--card);
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
+
+  @media (min-width: 1024px) {
+    .carpet-track {
+      --card: 400px;
+      gap: 2rem;
+      padding-inline: 4rem;
+    }
+
+    .carpet-track > * {
+      scroll-snap-align: start;
+    }
+  }
+
   .premium-button {
     position: relative;
     isolation: isolate;

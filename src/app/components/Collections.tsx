@@ -2,12 +2,14 @@ import { useRef } from "react";
 import { motion } from "motion/react";
 import { CarpetImage } from "./CarpetImage";
 import { useCopy } from "../../i18n/LanguageProvider";
-import { useAutoScroll } from "../hooks/useAutoScroll";
+import { useAutoAdvance } from "../hooks/useAutoAdvance";
 import { usePrefersReducedMotion } from "../hooks/useMediaQuery";
 
 const CATALOGUE_URL = `${import.meta.env.BASE_URL}catalog.html`;
 
 interface CardProps {
+  /** The first couple load eagerly so the auto-advance never shows a gap. */
+  priority: boolean;
   image: string;
   name: string;
   origin: string;
@@ -20,18 +22,15 @@ interface CardProps {
 
 function CollectionCard(item: CardProps) {
   return (
-    <article
-      /* The card width is what makes the track scrollable: a little under the
-         screen on a phone, so the next card always peeks in and it is obvious
-         the row moves sideways. */
-      className="group w-[78vw] flex-shrink-0 snap-start sm:w-[52vw] lg:w-[400px]"
-    >
+    /* Width, snapping and centring all come from .carpet-track in theme.css. */
+    <article className="group">
       <div className="relative mb-5 overflow-hidden" style={{ aspectRatio: "3/4" }}>
         <CarpetImage
           name={item.image}
           alt={`${item.name} — Persian carpet`}
           className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          sizes="(max-width: 639px) 78vw, (max-width: 1023px) 52vw, 400px"
+          sizes="(max-width: 1023px) 86vw, 400px"
+          priority={item.priority}
         />
         <div className="pointer-events-none absolute right-4 top-4 h-6 w-6 border-r border-t border-[#B8935A]/60" />
         <div className="pointer-events-none absolute bottom-4 left-4 h-6 w-6 border-b border-l border-[#B8935A]/60" />
@@ -70,7 +69,7 @@ export function Collections() {
   const trackRef = useRef<HTMLDivElement>(null);
   const reducedMotion = usePrefersReducedMotion();
 
-  useAutoScroll(trackRef, { speed: 24, enabled: !reducedMotion });
+  useAutoAdvance(trackRef, { interval: 3000, enabled: !reducedMotion });
 
   // Rendered twice so the loop can wrap at the halfway point without a seam.
   const loop = [...t.collections.items, ...t.collections.items];
@@ -118,8 +117,7 @@ export function Collections() {
           card aligned to the page margin. */}
       <div
         ref={trackRef}
-        className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 lg:gap-8 lg:px-16"
-        style={{ scrollBehavior: "auto" }}
+        className="carpet-track no-scrollbar pb-2"
         role="region"
         aria-label={t.collections.trackLabel}
         tabIndex={0}
@@ -127,6 +125,7 @@ export function Collections() {
         {loop.map((item, i) => (
           <CollectionCard
             key={`${item.id}-${i}`}
+            priority={i < 3}
             image={item.image}
             name={item.name}
             origin={item.origin}
