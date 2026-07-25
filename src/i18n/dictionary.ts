@@ -337,7 +337,7 @@ const en = {
 
   showroom: {
     label: "◆ The gallery",
-    titleLine1: "The first gallery",
+    titleLine1: "The only gallery",
     titleLine2: "in Central Asia.",
     intro:
       "Ghanbarinia keeps more than thirty galleries around the world. In Central Asia there is one, and it is in Tashkent, on the second floor of Tashkent City Mall. No photograph shows how silk turns colour as you move past it, which is the entire reason to come and stand in front of it.",
@@ -758,7 +758,7 @@ const ru: Dictionary = {
 
   showroom: {
     label: "◆ Галерея",
-    titleLine1: "Первая галерея",
+    titleLine1: "Единственная галерея",
     titleLine2: "в Средней Азии.",
     intro:
       "У Ghanbarinia больше тридцати галерей по миру. В Средней Азии она одна — в Ташкенте, на втором этаже ТРЦ Tashkent City Mall. Ни одна фотография не передаст, как шёлк перетекает в цвете, когда вы проходите мимо, — ради этого и стоит прийти.",

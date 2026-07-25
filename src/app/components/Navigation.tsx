@@ -72,10 +72,15 @@ export function Navigation() {
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-5 lg:px-16">
+          {/* Italic, matching the second line of every heading. Gold was too
+              low-contrast against the cream header, so on light it goes back
+              to near-black and keeps gold for the hover only. */}
           <a
             href="#top"
-            className={`font-['Playfair_Display'] text-lg tracking-[0.3em] transition-colors duration-500 hover:text-[#B8935A] lg:text-xl lg:tracking-[0.35em] ${
-              onDark ? "text-[#FAF8F3] drop-shadow" : "text-[#1A1108]"
+            className={`font-['Playfair_Display'] text-lg italic tracking-[0.12em] transition-colors duration-500 lg:text-xl lg:tracking-[0.14em] ${
+              onDark
+                ? "text-[#FAF8F3] drop-shadow hover:text-[#E0BC75]"
+                : "text-[#1A1108] hover:text-[#B8935A]"
             }`}
           >
             GHANBARINIA
@@ -99,7 +104,9 @@ export function Navigation() {
             <LanguageSwitch />
             <span
               className={`font-['Jost'] text-[10px] uppercase tracking-[0.18em] ${
-                onDark ? "text-[#FAF8F3]/70" : "text-[#7A6E5F]"
+                onDark
+                  ? "text-[#FAF8F3]/85 [text-shadow:0_1px_10px_rgba(0,0,0,0.75)]"
+                  : "text-[#7A6E5F]"
               }`}
             >
               {t.nav.appointment}
@@ -159,7 +166,7 @@ export function Navigation() {
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.35 }}
           >
-            <div className="mb-2 font-['Playfair_Display'] text-lg tracking-[0.3em] text-[#1A1108]">
+            <div className="mb-2 font-['Playfair_Display'] text-lg italic tracking-[0.12em] text-[#1A1108]">
               GHANBARINIA
             </div>
 

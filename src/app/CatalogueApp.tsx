@@ -252,7 +252,7 @@ function Catalogue() {
         <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-6 py-4 lg:px-16">
           <a
             href={HOME_URL}
-            className="font-['Playfair_Display'] text-base tracking-[0.3em] text-[#1A1108] transition-colors hover:text-[#B8935A] lg:text-lg"
+            className="font-['Playfair_Display'] text-base italic tracking-[0.12em] text-[#1A1108] transition-colors hover:text-[#B8935A] lg:text-lg"
           >
             GHANBARINIA
           </a>

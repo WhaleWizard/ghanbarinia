@@ -51,6 +51,12 @@ export function Hero() {
           it. These scrims turn the lower half into near-solid darkness, so the
           text always has something to sit on. */}
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(10,7,4,0.86)_0%,rgba(10,7,4,0.34)_26%,rgba(10,7,4,0.62)_54%,rgba(10,7,4,0.95)_82%,rgba(10,7,4,0.99)_100%)] lg:bg-[linear-gradient(94deg,rgba(10,7,4,0.97)_0%,rgba(10,7,4,0.9)_34%,rgba(10,7,4,0.5)_62%,rgba(10,7,4,0.2)_100%)]" />
+      {/* The side gradient leaves the right edge almost clear, so the header
+          row, the pull quote and the scroll hint were sitting on bright cream
+          carpet. These two bands darken the top and bottom across the full
+          width without hiding the photograph in the middle. */}
+      <div className="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(180deg,rgba(10,7,4,0.72)_0%,rgba(10,7,4,0.28)_14%,transparent_30%)] lg:block" />
+      <div className="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(0deg,rgba(10,7,4,0.6)_0%,rgba(10,7,4,0.2)_12%,transparent_26%)] lg:block" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_78%_36%,rgba(197,154,82,0.16),transparent_38%)]" />
       <div className="pointer-events-none absolute bottom-10 left-6 right-6 top-24 hidden border border-[#E7D4A7]/12 lg:block" />
 
@@ -70,16 +76,18 @@ export function Hero() {
             {t.hero.eyebrow}
           </motion.p>
 
+          {/* Its own dark plate: this quote sits over the brightest part of
+              the photograph, where light text alone disappears. */}
           <motion.div
-            className="hidden max-w-[260px] border-l border-[#E7D4A7]/25 pl-7 text-right lg:block"
+            className="hidden max-w-[280px] border-l border-[#E7D4A7]/35 bg-[#0A0704]/45 py-4 pl-6 pr-5 text-right backdrop-blur-[2px] lg:block"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.9 }}
           >
-            <p className="font-['Jost'] text-[10px] uppercase tracking-[0.3em] text-[#FAF8F3]/55">
+            <p className="font-['Jost'] text-[10px] uppercase tracking-[0.3em] text-[#E7D4A7]/75">
               {t.hero.sideLabel}
             </p>
-            <p className="mt-3 font-['Playfair_Display'] text-[18px] italic leading-snug text-[#FAF8F3]/85">
+            <p className="mt-3 font-['Playfair_Display'] text-[18px] italic leading-snug text-[#FAF8F3] [text-shadow:0_1px_12px_rgba(0,0,0,0.6)]">
               {t.hero.sideText}
             </p>
           </motion.div>
@@ -101,9 +109,9 @@ export function Hero() {
           <motion.h1
             /* The floor is 34px, not 54px as it was originally: at 54px a
                single line needed ~400px and wrapped, turning a two-line
-               headline into three. Each line is its own block, so with copy
-               this short the headline can only ever be two lines. */
-            className="max-w-[980px] font-['Playfair_Display'] text-[clamp(34px,8.4vw,142px)] leading-[0.95] tracking-[-0.04em] text-[#FAF8F3] [text-shadow:0_2px_30px_rgba(0,0,0,0.55)]"
+               headline into three. The ceiling is 96px, not 142px, which
+               swallowed the whole first screen on a desktop monitor. */
+            className="max-w-[980px] font-['Playfair_Display'] text-[clamp(34px,6.4vw,96px)] leading-[0.98] tracking-[-0.035em] text-[#FAF8F3] [text-shadow:0_2px_30px_rgba(0,0,0,0.55)]"
             initial={{ opacity: 0, y: 44 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
@@ -155,10 +163,10 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.9 }}
       >
-        <span className="font-['Jost'] text-[9px] uppercase tracking-[0.4em] text-[#FAF8F3]/45">
+        <span className="font-['Jost'] text-[9px] uppercase tracking-[0.4em] text-[#FAF8F3]/80 [text-shadow:0_1px_10px_rgba(0,0,0,0.8)]">
           {t.hero.scroll}
         </span>
-        <div className="relative h-px w-24 overflow-hidden bg-[#FAF8F3]/20">
+        <div className="relative h-px w-24 overflow-hidden bg-[#FAF8F3]/35">
           <motion.div
             className="absolute left-0 top-0 h-full w-1/2 bg-[#E0BC75]"
             animate={{ x: ["-100%", "220%"] }}

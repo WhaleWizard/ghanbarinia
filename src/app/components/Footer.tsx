@@ -18,7 +18,9 @@ export function Footer() {
       <div className="mx-auto max-w-[1440px] px-6 py-16 lg:px-16 lg:py-20">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-4 lg:gap-8">
           <div className="lg:col-span-2">
-            <div className="mb-5 font-['Playfair_Display'] text-[20px] tracking-[0.3em] text-[#FAF8F3]">
+            {/* Same italic wordmark as the header; the footer is dark, so it
+                stays light rather than turning gold. */}
+            <div className="mb-5 font-['Playfair_Display'] text-[20px] italic tracking-[0.12em] text-[#FAF8F3]">
               GHANBARINIA
             </div>
             <p className="mb-7 max-w-sm font-['Jost'] text-[13px] leading-[1.8] text-[#FAF8F3]/45">
