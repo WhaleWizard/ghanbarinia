@@ -1,3 +1,6 @@
-This Figma Make file includes components from [shadcn/ui](https://ui.shadcn.com/) used under [MIT license](https://github.com/shadcn-ui/ui/blob/main/LICENSE.md).
+Placeholder photography in `public/img/carpets/` comes from [Unsplash](https://unsplash.com)
+and is used under the [Unsplash licence](https://unsplash.com/license). These images are
+temporary and are being replaced with photographs of the Tashkent showroom.
 
-This Figma Make file includes photos from [Unsplash](https://unsplash.com) used under [license](https://unsplash.com/license).
+Fonts: [Playfair Display](https://fonts.google.com/specimen/Playfair+Display) and
+[Jost](https://fonts.google.com/specimen/Jost), both under the SIL Open Font License.

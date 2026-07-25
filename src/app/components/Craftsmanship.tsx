@@ -1,110 +1,88 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { CarpetImage } from "./CarpetImage";
+import { useIsDesktop, usePrefersReducedMotion } from "../hooks/useMediaQuery";
+import { useCopy } from "../../i18n/LanguageProvider";
 
-const steps = [
-  {
-    number: "01",
-    title: "Design & Cartography",
-    subtitle: "The Vision",
-    description:
-      "Every Ghanbarinia carpet begins as a precisely hand-painted cartoon — a 1:1 scale drawing on graph paper, where each square represents a single knot. Master designers require months to complete a single cartoon for a large medallion carpet, encoding thousands of colour transitions with mathematical precision.",
-    img: "https://images.unsplash.com/photo-1694847915592-2a7ef568e2b6?w=900&h=700&fit=crop&auto=format",
-    fallback: "https://images.unsplash.com/photo-1638310533874-6c124c012e1d?w=900&h=700&fit=crop&auto=format",
-  },
-  {
-    number: "02",
-    title: "Material Selection",
-    subtitle: "The Foundation",
-    description:
-      "We source exclusively from Iran's finest material suppliers. Silk thread comes from Caspian mulberry silkworms; kork wool is harvested from the chest of sheep grazed at altitude. Natural dyes — indigo, madder, pomegranate, walnut — are prepared by specialist dyers whose families have held the knowledge for generations.",
-    img: "https://images.unsplash.com/photo-1569909115134-a0426936c879?w=900&h=700&fit=crop&auto=format",
-    fallback: "https://images.unsplash.com/photo-1569909115134-a0426936c879?w=900&h=700&fit=crop&auto=format",
-  },
-  {
-    number: "03",
-    title: "Master Weaving",
-    subtitle: "The Creation",
-    description:
-      "A team of 4–6 master weavers (ustads) works in concert, reciting the colour code from memory row by row. Each knot is hand-tied, cut, and tamped. A Qom silk carpet measuring 3×4 metres may contain over 15 million individual knots and require three years of continuous work to complete.",
-    img: "https://images.unsplash.com/photo-1638310533874-6c124c012e1d?w=900&h=700&fit=crop&auto=format",
-    fallback: "https://images.unsplash.com/photo-1638310533874-6c124c012e1d?w=900&h=700&fit=crop&auto=format",
-  },
-  {
-    number: "04",
-    title: "Authentication & Provenance",
-    subtitle: "The Guarantee",
-    description:
-      "Every piece entering the Ghanbarinia collection undergoes a rigorous 47-point examination by our in-house panel of experts. Knot count, dye stability, foundation integrity, and age are verified. Each carpet is issued a certificate of provenance, a unique registration number, and a conservation guide before being presented in our showrooms.",
-    img: "https://images.unsplash.com/photo-1707978932202-751b08324daf?w=900&h=700&fit=crop&auto=format",
-    fallback: "https://images.unsplash.com/photo-1707978932202-751b08324daf?w=900&h=700&fit=crop&auto=format",
-  },
+/** Photo per step. The wording lives in the dictionary. */
+const STEP_IMAGES = [
+  "master-silk-garden",
+  "craft-materials",
+  "craft-weaving",
+  "craft-authentication",
 ];
 
 interface StepProps {
-  step: (typeof steps)[0];
   index: number;
+  number: string;
+  subtitle: string;
+  title: string;
+  description: string;
 }
 
-function Step({ step, index }: StepProps) {
+function Step({ index, number, subtitle, title, description }: StepProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const isDesktop = useIsDesktop();
+  const reducedMotion = usePrefersReducedMotion();
+  const animate = isDesktop && !reducedMotion;
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 0.85", "end 0.35"],
   });
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0, 1, 1, 0.4]);
-  const y = useTransform(scrollYProgress, [0, 0.3], [60, 0]);
-  const imgX = useTransform(
-    scrollYProgress,
-    [0, 0.3],
-    [index % 2 === 0 ? 80 : -80, 0]
-  );
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.85, 1], [0, 1, 1, 0.5]);
+  const y = useTransform(scrollYProgress, [0, 0.3], [50, 0]);
+  /* The image used to slide in from 80px sideways on every screen size. On a
+     phone that pushed the whole page beyond the viewport. */
+  const imgX = useTransform(scrollYProgress, [0, 0.3], [index % 2 === 0 ? 70 : -70, 0]);
 
   const isEven = index % 2 === 0;
 
   return (
     <motion.div
       ref={ref}
-      className={`flex flex-col lg:flex-row items-center gap-16 lg:gap-24 ${
+      className={`flex flex-col items-center gap-8 lg:flex-row lg:gap-24 ${
         isEven ? "" : "lg:flex-row-reverse"
       }`}
-      style={{ opacity, y }}
+      style={animate ? { opacity, y } : undefined}
+      initial={animate ? undefined : { opacity: 0, y: 24 }}
+      whileInView={animate ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
-      {/* Image */}
       <motion.div
-        className="lg:w-[55%] relative overflow-hidden flex-shrink-0"
-        style={{ x: imgX, aspectRatio: "4/3" }}
+        className="relative w-full flex-shrink-0 overflow-hidden lg:w-[55%]"
+        style={animate ? { x: imgX, aspectRatio: "4/3" } : { aspectRatio: "4/3" }}
       >
-        <ImageWithFallback
-          src={step.img}
-          alt={step.title}
-          className="w-full h-full object-cover"
+        <CarpetImage
+          name={STEP_IMAGES[index] ?? STEP_IMAGES[0]}
+          alt={title}
+          className="h-full w-full object-cover"
+          sizes="(max-width: 1023px) 92vw, 55vw"
         />
-        {/* Step number overlay */}
-        <div className="absolute top-6 left-6">
-          <span className="font-['Playfair_Display'] text-[80px] leading-none text-[#FAF8F3]/10 select-none">
-            {step.number}
+        <div className="absolute left-5 top-4">
+          <span className="select-none font-['Playfair_Display'] text-[64px] leading-none text-[#FAF8F3]/15 lg:text-[80px]">
+            {number}
           </span>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1108]/15 to-transparent pointer-events-none" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1A1108]/20 to-transparent" />
       </motion.div>
 
-      {/* Text */}
-      <div className={`lg:w-[45%] ${isEven ? "lg:pr-8" : "lg:pl-8"}`}>
-        <div className="flex items-center gap-4 mb-6">
-          <span className="font-['Jost'] text-[10px] tracking-[0.4em] uppercase text-[#B8935A]">
-            {step.number}
+      <div className={`w-full lg:w-[45%] ${isEven ? "lg:pr-8" : "lg:pl-8"}`}>
+        <div className="mb-5 flex items-center gap-4">
+          <span className="font-['Jost'] text-[10px] uppercase tracking-[0.35em] text-[#B8935A]">
+            {number}
           </span>
-          <div className="w-10 h-px bg-[#B8935A]" />
-          <span className="font-['Jost'] text-[10px] tracking-[0.3em] uppercase text-[#7A6E5F]">
-            {step.subtitle}
+          <span className="h-px w-10 bg-[#B8935A]" />
+          <span className="font-['Jost'] text-[10px] uppercase tracking-[0.28em] text-[#7A6E5F]">
+            {subtitle}
           </span>
         </div>
-        <h3 className="font-['Playfair_Display'] text-[clamp(28px,3vw,44px)] leading-[1.2] text-[#1A1108] mb-6">
-          {step.title}
+        <h3 className="mb-5 font-['Playfair_Display'] text-[clamp(28px,3vw,44px)] leading-[1.2] text-[#1A1108]">
+          {title}
         </h3>
-        <p className="font-['Jost'] text-[14px] leading-[1.9] text-[#7A6E5F]">
-          {step.description}
+        <p className="font-['Jost'] text-[14px] leading-[1.85] text-[#7A6E5F]">
+          {description}
         </p>
       </div>
     </motion.div>
@@ -112,30 +90,31 @@ function Step({ step, index }: StepProps) {
 }
 
 export function Craftsmanship() {
+  const t = useCopy();
+
   return (
-    <section id="craftsmanship" className="bg-[#F3EDE2] py-32 lg:py-40">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
-        {/* Header */}
-        <div className="mb-24 lg:mb-32 text-center max-w-2xl mx-auto">
+    <section id="craftsmanship" className="bg-[#F3EDE2] py-20 lg:py-40">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-16">
+        <div className="mx-auto mb-16 max-w-2xl text-center lg:mb-32">
           <motion.p
-            className="font-['Jost'] text-[10px] tracking-[0.4em] uppercase text-[#B8935A] mb-5"
+            className="mb-5 font-['Jost'] text-[10px] uppercase tracking-[0.4em] text-[#B8935A]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            ◆ The Art of Making
+            {t.craft.label}
           </motion.p>
           <motion.h2
-            className="font-['Playfair_Display'] text-[clamp(36px,4vw,64px)] leading-[1.1] text-[#1A1108] mb-6"
-            initial={{ opacity: 0, y: 30 }}
+            className="mb-6 font-['Playfair_Display'] text-[clamp(32px,4vw,64px)] leading-[1.1] text-[#1A1108]"
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 1 }}
+            transition={{ delay: 0.1, duration: 0.9 }}
           >
-            From cartographer's pen
+            {t.craft.titleLine1}
             <br />
-            <span className="italic text-[#B8935A]">to collector's floor.</span>
+            <span className="italic text-[#B8935A]">{t.craft.titleLine2}</span>
           </motion.h2>
           <motion.p
             className="font-['Jost'] text-[14px] leading-[1.8] text-[#7A6E5F]"
@@ -144,14 +123,20 @@ export function Craftsmanship() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            The creation of a museum-quality Persian carpet is one of humanity's most demanding artistic disciplines. From initial design to final authentication, the process may span five years.
+            {t.craft.intro}
           </motion.p>
         </div>
 
-        {/* Steps */}
-        <div className="flex flex-col gap-32 lg:gap-40">
-          {steps.map((step, i) => (
-            <Step key={step.number} step={step} index={i} />
+        <div className="flex flex-col gap-20 lg:gap-40">
+          {t.craft.steps.map((step, i) => (
+            <Step
+              key={step.number}
+              index={i}
+              number={step.number}
+              subtitle={step.subtitle}
+              title={step.title}
+              description={step.description}
+            />
           ))}
         </div>
       </div>

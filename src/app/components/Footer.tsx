@@ -1,97 +1,105 @@
-import { motion } from "motion/react";
-
-const links = {
-  Collections: ["Tabriz", "Kashan", "Isfahan", "Qom Silk", "Nain", "Tribal"],
-  Services: ["Private Viewing", "Home Preview", "Corporate Acquisition", "Bespoke Commission", "Conservation & Restoration"],
-  Company: ["Our Heritage", "Craftsmanship", "Authentication", "Showrooms", "Press & Media"],
-};
-
-const socials = [
-  { name: "Instagram", href: "https://www.instagram.com/ghanbariniauzbekistan" },
-  { name: "Telegram", href: "https://t.me/ghanbariniauzbekistan" },
-];
+import { useCopy } from "../../i18n/LanguageProvider";
+import { CONTACTS } from "../../i18n/dictionary";
 
 export function Footer() {
+  const t = useCopy();
+
+  // Every one of these used to be href="#" — a dead link.
+  const sections = [
+    { label: t.nav.heritage, href: "#heritage" },
+    { label: t.nav.schools, href: "#schools" },
+    { label: t.nav.collections, href: "#collections" },
+    { label: t.nav.craft, href: "#craftsmanship" },
+    { label: t.nav.showroom, href: "#showroom" },
+  ];
+
   return (
-    <footer className="bg-[#120D07] border-t border-[rgba(250,248,243,0.06)]">
-      {/* Main footer */}
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-16 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-8">
-          {/* Brand column */}
+    <footer className="border-t border-[rgba(250,248,243,0.06)] bg-[#120D07]">
+      <div className="mx-auto max-w-[1440px] px-6 py-16 lg:px-16 lg:py-20">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-4 lg:gap-8">
           <div className="lg:col-span-2">
-            <div className="font-['Playfair_Display'] text-[22px] tracking-[0.35em] text-[#FAF8F3] mb-5">
+            <div className="mb-5 font-['Playfair_Display'] text-[20px] tracking-[0.3em] text-[#FAF8F3]">
               GHANBARINIA
             </div>
-            <p className="font-['Jost'] text-[13px] leading-[1.8] text-[#FAF8F3]/40 mb-8 max-w-xs">
-              Ghanbarinia Uzbekistan — handmade Persian silk carpets, private catalogue previews, and acquisition support for Tashkent, Samarkand, Bukhara, and every region.
+            <p className="mb-7 max-w-sm font-['Jost'] text-[13px] leading-[1.8] text-[#FAF8F3]/45">
+              {t.footer.about}
             </p>
 
-            {/* Persian ornament */}
-            <div className="mb-8">
-              <svg width="80" height="40" viewBox="0 0 80 40" fill="none">
-                <line x1="0" y1="20" x2="30" y2="20" stroke="#B8935A" strokeWidth="0.5" opacity="0.4" />
-                <circle cx="40" cy="20" r="8" fill="none" stroke="#B8935A" strokeWidth="0.5" opacity="0.6" />
-                <circle cx="40" cy="20" r="4" fill="none" stroke="#B8935A" strokeWidth="0.5" opacity="0.5" />
-                <polygon points="40,12 48,20 40,28 32,20" fill="none" stroke="#B8935A" strokeWidth="0.5" opacity="0.4" />
-                <line x1="50" y1="20" x2="80" y2="20" stroke="#B8935A" strokeWidth="0.5" opacity="0.4" />
-              </svg>
-            </div>
-
-            <div className="flex gap-6">
-              {socials.map((s) => (
-                <a
-                  key={s.name}
-                  href={s.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-['Jost'] text-[10px] tracking-[0.25em] uppercase text-[#FAF8F3]/30 hover:text-[#B8935A] transition-colors duration-300"
-                >
-                  {s.name}
-                </a>
-              ))}
-            </div>
+            <svg width="80" height="40" viewBox="0 0 80 40" fill="none" aria-hidden="true">
+              <line x1="0" y1="20" x2="30" y2="20" stroke="#B8935A" strokeWidth="0.5" opacity="0.4" />
+              <circle cx="40" cy="20" r="8" fill="none" stroke="#B8935A" strokeWidth="0.5" opacity="0.6" />
+              <circle cx="40" cy="20" r="4" fill="none" stroke="#B8935A" strokeWidth="0.5" opacity="0.5" />
+              <polygon points="40,12 48,20 40,28 32,20" fill="none" stroke="#B8935A" strokeWidth="0.5" opacity="0.4" />
+              <line x1="50" y1="20" x2="80" y2="20" stroke="#B8935A" strokeWidth="0.5" opacity="0.4" />
+            </svg>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(links).map(([category, items]) => (
-            <div key={category}>
-              <p className="font-['Jost'] text-[10px] tracking-[0.35em] uppercase text-[#B8935A] mb-6">
-                {category}
-              </p>
-              <ul className="flex flex-col gap-3">
-                {items.map((item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
-                      className="font-['Jost'] text-[12px] text-[#FAF8F3]/40 hover:text-[#FAF8F3]/80 transition-colors duration-300"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <p className="mb-5 font-['Jost'] text-[10px] uppercase tracking-[0.3em] text-[#B8935A]">
+              {t.footer.navTitle}
+            </p>
+            <ul className="flex flex-col gap-3">
+              {sections.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    className="font-['Jost'] text-[13px] text-[#FAF8F3]/45 transition-colors duration-300 hover:text-[#FAF8F3]/85"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="mb-5 font-['Jost'] text-[10px] uppercase tracking-[0.3em] text-[#B8935A]">
+              {t.footer.contactTitle}
+            </p>
+            <ul className="flex flex-col gap-3 font-['Jost'] text-[13px] text-[#FAF8F3]/45">
+              <li className="leading-relaxed">{t.showroom.address}</li>
+              <li>{t.showroom.hours}</li>
+              <li>
+                <a
+                  href={CONTACTS.phoneHref}
+                  className="transition-colors duration-300 hover:text-[#FAF8F3]/85"
+                >
+                  {CONTACTS.phone}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={CONTACTS.telegramHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition-colors duration-300 hover:text-[#FAF8F3]/85"
+                >
+                  Telegram — {CONTACTS.telegram}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={CONTACTS.instagramHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition-colors duration-300 hover:text-[#FAF8F3]/85"
+                >
+                  Instagram — {CONTACTS.instagram}
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-[rgba(250,248,243,0.05)]">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-16 py-6 flex flex-col lg:flex-row items-center justify-between gap-4">
-          <p className="font-['Jost'] text-[10px] tracking-[0.2em] uppercase text-[#FAF8F3]/25">
-            © {new Date().getFullYear()} Ghanbarinia Uzbekistan. All rights reserved.
+        <div className="mx-auto flex max-w-[1440px] flex-col items-start justify-between gap-3 px-6 py-6 lg:flex-row lg:items-center lg:px-16">
+          <p className="font-['Jost'] text-[10px] uppercase tracking-[0.18em] text-[#FAF8F3]/25">
+            © {new Date().getFullYear()} Ghanbarinia Uzbekistan. {t.footer.rights}
           </p>
-          <div className="flex items-center gap-6">
-            {["Privacy Policy", "Terms & Conditions", "Cookie Policy"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="font-['Jost'] text-[10px] tracking-[0.15em] uppercase text-[#FAF8F3]/25 hover:text-[#FAF8F3]/60 transition-colors duration-300"
-              >
-                {item}
-              </a>
-            ))}
-          </div>
+          <p className="font-['Jost'] text-[10px] text-[#FAF8F3]/20">
+            {t.footer.photoNote}
+          </p>
         </div>
       </div>
     </footer>

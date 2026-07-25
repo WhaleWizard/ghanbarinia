@@ -1,3 +1,4 @@
-@import './fonts.css';
+/* Web fonts are loaded from index.html so they start downloading before the
+   JS bundle, instead of waiting for this stylesheet to parse. */
 @import './tailwind.css';
 @import './theme.css';

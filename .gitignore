@@ -3,3 +3,8 @@ dist/
 .DS_Store
 .env
 .env.*
+
+# Original full-size photographs. Only the optimised WebP files under
+# public/img/ are served, and those are committed. Run `npm run images`
+# after dropping new originals in here.
+images-source/

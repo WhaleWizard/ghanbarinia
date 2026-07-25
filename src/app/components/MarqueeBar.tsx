@@ -1,32 +1,23 @@
 import { motion } from "motion/react";
-
-const items = [
-  "Est. 1965",
-  "30+ Showrooms Worldwide",
-  "Master Hand-Knotted Carpets",
-  "Tabriz · Kashan · Isfahan · Qom",
-  "From $10,000 to $1,500,000",
-  "Private Acquisition Service",
-  "60 Years of Excellence",
-  "Natural Silk & Wool",
-];
+import { useCopy } from "../../i18n/LanguageProvider";
 
 export function MarqueeBar() {
-  const repeated = [...items, ...items, ...items];
+  const t = useCopy();
+  const repeated = [...t.marquee, ...t.marquee, ...t.marquee];
 
   return (
-    <div className="bg-[#1A1108] py-4 overflow-hidden relative">
+    <div className="relative overflow-hidden bg-[#1A1108] py-4">
       <motion.div
         className="flex gap-12 whitespace-nowrap"
         animate={{ x: ["0%", "-33.33%"] }}
-        transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 19, repeat: Infinity, ease: "linear" }}
       >
         {repeated.map((item, i) => (
-          <span key={i} className="flex items-center gap-12 shrink-0">
-            <span className="font-['Jost'] text-[10px] tracking-[0.35em] uppercase text-[#FAF8F3]/70">
+          <span key={`${item}-${i}`} className="flex shrink-0 items-center gap-12">
+            <span className="font-['Jost'] text-[10px] uppercase tracking-[0.3em] text-[#FAF8F3]/70">
               {item}
             </span>
-            <span className="text-[#B8935A] text-sm">◆</span>
+            <span className="text-sm text-[#B8935A]">◆</span>
           </span>
         ))}
       </motion.div>
