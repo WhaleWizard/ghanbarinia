@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - master
   workflow_dispatch:
 
 permissions:
@@ -23,21 +22,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
+      # npm, not pnpm: package-lock.json is the lockfile this repository
+      # actually has, so `npm ci` installs the exact versions that were
+      # tested locally instead of resolving fresh ones on every run.
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: npm ci
+
+      - name: Type check
+        run: npm run check
 
       - name: Build
-        run: pnpm build
+        run: npm run build
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
