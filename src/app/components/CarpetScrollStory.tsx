@@ -59,9 +59,13 @@ function Frame({
       </div>
 
       {/* Legibility layers: a wash in the scene's own colour, then a dark
-          gradient under the text. */}
+          gradient under the text.
+          Plain alpha, not mix-blend-multiply. Eight full-screen blend layers
+          sat in this sticky stack, and every scroll frame made the browser
+          read back the pixels underneath and re-blend all of them — which is
+          what made touch scrolling stutter. */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-40 mix-blend-multiply"
+        className="pointer-events-none absolute inset-0 opacity-30"
         style={{ backgroundColor: accent }}
       />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(8,6,4,0.74)_0%,rgba(8,6,4,0.22)_30%,rgba(8,6,4,0.6)_66%,rgba(8,6,4,0.95)_100%)] lg:bg-[linear-gradient(90deg,rgba(8,6,4,0.95)_0%,rgba(8,6,4,0.72)_44%,rgba(8,6,4,0.14)_100%)]" />
@@ -104,7 +108,7 @@ function Frame({
               label that names an action rather than a state. */}
           <a
             href="#consultation"
-            className="group inline-flex items-center gap-3 bg-[#FAF8F3] px-7 py-3.5 font-['Jost'] text-[10px] uppercase tracking-[0.2em] text-[#100B06] transition-colors duration-300 hover:bg-[#E0BC75]"
+            className="group inline-flex items-center gap-3 bg-[#FAF8F3] px-7 py-3.5 font-['Jost'] text-[10px] uppercase tracking-[0.2em] text-[#100B06] transition-colors duration-300 hover:bg-[#E0BC75] motion-reduce:transition-none"
           >
             {cta}
             <span

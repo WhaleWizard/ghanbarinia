@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useCopy } from "../../i18n/LanguageProvider";
 import { CONTACTS } from "../../i18n/dictionary";
+import { useIsDesktop, usePrefersReducedMotion } from "../hooks/useMediaQuery";
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -18,6 +19,13 @@ export function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-8%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
+  /* Parallax is desktop-only. Animating `scale` on a full-screen photograph
+     makes the browser re-rasterise it on every frame, which is exactly the
+     kind of work a phone cannot spare while a finger is on the screen. */
+  const isDesktop = useIsDesktop();
+  const reducedMotion = usePrefersReducedMotion();
+  const parallax = isDesktop && !reducedMotion;
+
   return (
     <section
       id="top"
@@ -26,7 +34,10 @@ export function Hero() {
          first screen jump while scrolling. */
       className="relative h-[100svh] min-h-[560px] overflow-hidden bg-[#0A0704]"
     >
-      <motion.div className="absolute inset-0" style={{ y: imageY, scale: imageScale }}>
+      <motion.div
+        className="absolute inset-0"
+        style={parallax ? { y: imageY, scale: imageScale } : undefined}
+      >
         {/* Two crops rather than one: phones get a tall frame, desktops a wide
             one, so neither downloads pixels it will never show. */}
         <picture>
@@ -62,7 +73,7 @@ export function Hero() {
 
       <motion.div
         className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-between px-6 lg:px-16"
-        style={{ y: contentY, opacity: contentOpacity }}
+        style={parallax ? { y: contentY, opacity: contentOpacity } : undefined}
       >
         <div className="grid gap-6 pt-28 lg:grid-cols-[1fr_auto] lg:items-start lg:pt-36">
           <motion.p

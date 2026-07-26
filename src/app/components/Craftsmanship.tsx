@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
 import { CarpetImage } from "./CarpetImage";
 import { useIsDesktop, usePrefersReducedMotion } from "../hooks/useMediaQuery";
 import { useCopy } from "../../i18n/LanguageProvider";
@@ -20,39 +20,22 @@ interface StepProps {
   description: string;
 }
 
-function Step({ index, number, subtitle, title, description }: StepProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isDesktop = useIsDesktop();
-  const reducedMotion = usePrefersReducedMotion();
-  const animate = isDesktop && !reducedMotion;
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 0.85", "end 0.35"],
-  });
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.85, 1], [0, 1, 1, 0.5]);
-  const y = useTransform(scrollYProgress, [0, 0.3], [50, 0]);
-  /* The image used to slide in from 80px sideways on every screen size. On a
-     phone that pushed the whole page beyond the viewport. */
-  const imgX = useTransform(scrollYProgress, [0, 0.3], [index % 2 === 0 ? 70 : -70, 0]);
-
+/** The layout, shared by both variants. `imgX` slides the photograph in on
+ *  desktop; on mobile nothing is passed and the wrapper stays static. */
+function StepBody({
+  index,
+  number,
+  subtitle,
+  title,
+  description,
+  imgX,
+}: StepProps & { imgX?: MotionValue<number> }) {
   const isEven = index % 2 === 0;
-
   return (
-    <motion.div
-      ref={ref}
-      className={`flex flex-col items-center gap-8 lg:flex-row lg:gap-24 ${
-        isEven ? "" : "lg:flex-row-reverse"
-      }`}
-      style={animate ? { opacity, y } : undefined}
-      initial={animate ? undefined : { opacity: 0, y: 24 }}
-      whileInView={animate ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <>
       <motion.div
         className="relative w-full flex-shrink-0 overflow-hidden lg:w-[55%]"
-        style={animate ? { x: imgX, aspectRatio: "4/3" } : { aspectRatio: "4/3" }}
+        style={{ aspectRatio: "4/3", ...(imgX ? { x: imgX } : {}) }}
       >
         <CarpetImage
           name={STEP_IMAGES[index] ?? STEP_IMAGES[0]}
@@ -85,12 +68,64 @@ function Step({ index, number, subtitle, title, description }: StepProps) {
           {description}
         </p>
       </div>
+    </>
+  );
+}
+
+const rowClass = (index: number) =>
+  `flex flex-col items-center gap-8 lg:flex-row lg:gap-24 ${
+    index % 2 === 0 ? "" : "lg:flex-row-reverse"
+  }`;
+
+/**
+ * Desktop: the step fades and slides as it passes through the viewport.
+ *
+ * This lives in its own component so the scroll tracking is never mounted on
+ * a phone. Hooks cannot be called conditionally, so when the transforms were
+ * merely ignored on mobile, four useScroll listeners still measured and
+ * recalculated on every scroll frame for nothing.
+ */
+function StepAnimated(props: StepProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.85", "end 0.35"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.85, 1], [0, 1, 1, 0.5]);
+  const y = useTransform(scrollYProgress, [0, 0.3], [50, 0]);
+  const imgX = useTransform(
+    scrollYProgress,
+    [0, 0.3],
+    [props.index % 2 === 0 ? 70 : -70, 0]
+  );
+
+  return (
+    <motion.div ref={ref} className={rowClass(props.index)} style={{ opacity, y }}>
+      <StepBody {...props} imgX={imgX} />
+    </motion.div>
+  );
+}
+
+/** Phones and reduced motion: one fade on entry, no scroll tracking at all. */
+function StepStatic(props: StepProps) {
+  return (
+    <motion.div
+      className={rowClass(props.index)}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <StepBody {...props} />
     </motion.div>
   );
 }
 
 export function Craftsmanship() {
   const t = useCopy();
+  const isDesktop = useIsDesktop();
+  const reducedMotion = usePrefersReducedMotion();
+  const Step = isDesktop && !reducedMotion ? StepAnimated : StepStatic;
 
   return (
     <section id="craftsmanship" className="bg-[#F3EDE2] py-20 lg:py-40">
