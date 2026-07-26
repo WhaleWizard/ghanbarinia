@@ -73,7 +73,28 @@ export function useAutoAdvance(
     // Start centred rather than flush against the left edge.
     el.scrollTo({ left: centreOf(0), behavior: "auto" });
 
-    const timer = window.setInterval(step, interval);
+    /**
+     * Only advance while the track is actually on screen.
+     *
+     * Left running, it fired a smooth horizontal scroll every few seconds no
+     * matter where the visitor was on the page — so scrolling back up into
+     * this section landed in the middle of an animation the visitor had not
+     * asked for, and the two scrolls fought each other.
+     */
+    let timer = 0;
+    const start = () => {
+      if (!timer) timer = window.setInterval(step, interval);
+    };
+    const stop = () => {
+      window.clearInterval(timer);
+      timer = 0;
+    };
+
+    const visibility = new IntersectionObserver(
+      ([entry]) => (entry.isIntersecting ? start() : stop()),
+      { threshold: 0.2 }
+    );
+    visibility.observe(el);
 
     const hold = () => {
       holds += 1;
@@ -98,7 +119,8 @@ export function useAutoAdvance(
     el.addEventListener("focusout", release);
 
     return () => {
-      window.clearInterval(timer);
+      visibility.disconnect();
+      stop();
       window.clearTimeout(rewind);
       el.removeEventListener("pointerenter", hold);
       el.removeEventListener("pointerleave", release);

@@ -46,7 +46,10 @@ export function Navigation() {
             type="button"
             onClick={() => setLanguage(code)}
             aria-pressed={language === code}
-            className={`font-['Jost'] text-[11px] uppercase tracking-[0.18em] transition-colors duration-300 ${
+            /* px-2 py-3 -my-2: the tappable area grows to ~41px tall while the
+               text stays put. At 17x17 these were the hardest thing on the
+               page to hit with a thumb. */
+            className={`-my-2 px-2 py-3 font-['Jost'] text-[11px] uppercase tracking-[0.18em] transition-colors duration-300 ${
               language === code
                 ? "text-[#B8935A]"
                 : onDark

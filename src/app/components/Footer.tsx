@@ -45,7 +45,7 @@ export function Footer() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="font-['Jost'] text-[13px] text-[#FAF8F3]/45 transition-colors duration-300 hover:text-[#FAF8F3]/85"
+                    className="inline-block py-1.5 font-['Jost'] text-[13px] text-[#FAF8F3]/45 transition-colors duration-300 hover:text-[#FAF8F3]/85"
                   >
                     {item.label}
                   </a>

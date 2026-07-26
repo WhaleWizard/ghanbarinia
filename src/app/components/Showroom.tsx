@@ -60,7 +60,7 @@ export function Showroom() {
               href={CONTACTS.mapHref}
               target="_blank"
               rel="noreferrer"
-              className="font-['Jost'] text-[11px] uppercase tracking-[0.18em] text-[#7A6E5F] underline-offset-4 transition-colors duration-300 hover:text-[#B8935A] hover:underline"
+              className="inline-block py-2 font-['Jost'] text-[11px] uppercase tracking-[0.18em] text-[#7A6E5F] underline-offset-4 transition-colors duration-300 hover:text-[#B8935A] hover:underline"
             >
               {t.showroom.directions}
             </a>
@@ -90,7 +90,7 @@ export function Showroom() {
                 href={CONTACTS.telegramHref}
                 target="_blank"
                 rel="noreferrer"
-                className="font-['Jost'] text-[11px] uppercase tracking-[0.18em] text-[#7A6E5F] underline-offset-4 transition-colors duration-300 hover:text-[#B8935A] hover:underline"
+                className="inline-block py-2 font-['Jost'] text-[11px] uppercase tracking-[0.18em] text-[#7A6E5F] underline-offset-4 transition-colors duration-300 hover:text-[#B8935A] hover:underline"
               >
                 Telegram
               </a>
@@ -98,7 +98,7 @@ export function Showroom() {
                 href={CONTACTS.instagramHref}
                 target="_blank"
                 rel="noreferrer"
-                className="font-['Jost'] text-[11px] uppercase tracking-[0.18em] text-[#7A6E5F] underline-offset-4 transition-colors duration-300 hover:text-[#B8935A] hover:underline"
+                className="inline-block py-2 font-['Jost'] text-[11px] uppercase tracking-[0.18em] text-[#7A6E5F] underline-offset-4 transition-colors duration-300 hover:text-[#B8935A] hover:underline"
               >
                 Instagram
               </a>

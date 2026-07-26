@@ -91,7 +91,10 @@ function StepAnimated(props: StepProps) {
     target: ref,
     offset: ["start 0.85", "end 0.35"],
   });
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.85, 1], [0, 1, 1, 0.5]);
+  /* The step used to dim to 50% once it had been scrolled past, which meant
+     scrolling back up returned you to half-faded content. It stays legible
+     now — the entry fade is the effect, the exit does not need one. */
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 1], [0, 1, 1]);
   const y = useTransform(scrollYProgress, [0, 0.3], [50, 0]);
   const imgX = useTransform(
     scrollYProgress,

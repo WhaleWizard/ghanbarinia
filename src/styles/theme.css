@@ -91,7 +91,14 @@
     gap: 1.5rem;
     overflow-x: auto;
     padding-inline: calc(50% - var(--card) / 2);
-    scroll-snap-type: x mandatory;
+    /* "proximity", not "mandatory": a mandatory snap container has to settle
+       on a snap point after every change, and re-snapping while the page is
+       being scrolled past it made vertical scrolling feel like it was
+       fighting back. Centring is done in JS anyway. */
+    scroll-snap-type: x proximity;
+    /* A sideways swipe on the track must not chain to the page or trigger the
+       browser's back gesture. */
+    overscroll-behavior-x: contain;
   }
 
   .carpet-track > * {

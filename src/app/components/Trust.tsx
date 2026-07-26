@@ -71,7 +71,7 @@ export function Trust() {
                 href={SOURCES[i]}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-2 font-['Jost'] text-[10px] uppercase tracking-[0.2em] text-[#1A1108] underline-offset-4 transition-colors duration-300 hover:text-[#B8935A] hover:underline"
+                className="group inline-flex items-center gap-2 py-2 font-['Jost'] text-[10px] uppercase tracking-[0.2em] text-[#1A1108] underline-offset-4 transition-colors duration-300 hover:text-[#B8935A] hover:underline"
               >
                 {t.trust.source}
                 <span
