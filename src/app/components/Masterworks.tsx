@@ -142,7 +142,7 @@ export function Masterworks() {
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.9 }}
           >
-            <h2 className="font-['Playfair_Display'] text-[clamp(32px,4vw,64px)] leading-[1.1] text-[#1A1108]">
+            <h2 className="font-['Playfair_Display'] text-[clamp(28px,4vw,64px)] leading-[1.1] text-[#1A1108]">
               {t.masterworks.titleLine1}
               <br />
               <span className="italic text-[#B8935A]">{t.masterworks.titleLine2}</span>

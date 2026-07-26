@@ -322,11 +322,11 @@ export const uz: Copy = {
   },
 
   trust: {
-    label: "◆ Hujjatlashtirilgan",
-    titleLine1: "Bu da’vo emas.",
-    titleLine2: "Bu yozma tarix.",
+    label: "◆ Matbuot va ko‘rgazmalar",
+    titleLine1: "Uy haqida",
+    titleLine2: "matbuot nima yozgan.",
     intro:
-      "Uy haqidagi hamma narsani mustaqil nashrlar tekshirgan. Quyidagi har bir bandda manbaga havola bor.",
+      "O‘zingiz tekshirib ko‘rishingiz mumkin bo‘lgan ko‘rgazmalar va nashrlar. Quyidagi har bir bandda manbaga havola bor.",
     source: "Manba",
     items: [
       {

@@ -106,7 +106,7 @@ export function Craftsmanship() {
             {t.craft.label}
           </motion.p>
           <motion.h2
-            className="mb-6 font-['Playfair_Display'] text-[clamp(32px,4vw,64px)] leading-[1.1] text-[#1A1108]"
+            className="mb-6 font-['Playfair_Display'] text-[clamp(28px,4vw,64px)] leading-[1.1] text-[#1A1108]"
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

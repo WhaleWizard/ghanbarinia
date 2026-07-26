@@ -340,11 +340,11 @@ const en = {
   },
 
   trust: {
-    label: "◆ On the record",
-    titleLine1: "Not a claim.",
-    titleLine2: "A record.",
+    label: "◆ Press and exhibitions",
+    titleLine1: "What the press",
+    titleLine2: "has written.",
     intro:
-      "Everything below has been reported by independent press. Each entry links to its source.",
+      "Exhibitions and articles you can go and check for yourself. Every entry below links to its source.",
     source: "Source",
     items: [
       {
@@ -795,11 +795,11 @@ const ru: Dictionary = {
   },
 
   trust: {
-    label: "◆ Задокументировано",
-    titleLine1: "Это не обещание.",
-    titleLine2: "Это факты.",
+    label: "◆ Пресса и выставки",
+    titleLine1: "Что о доме",
+    titleLine2: "писала пресса.",
     intro:
-      "Всё, что ниже, писала независимая пресса. У каждого пункта есть ссылка на источник.",
+      "Выставки и публикации, которые можно проверить самому. У каждого пункта ниже стоит ссылка на источник.",
     source: "Источник",
     items: [
       {

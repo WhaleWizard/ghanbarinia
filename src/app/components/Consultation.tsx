@@ -52,7 +52,7 @@ export function Consultation() {
               {t.consultation.label}
             </motion.p>
             <motion.h2
-              className="mb-7 font-['Playfair_Display'] text-[clamp(32px,4vw,64px)] leading-[1.1] text-[#FAF8F3]"
+              className="mb-7 font-['Playfair_Display'] text-[clamp(28px,4vw,64px)] leading-[1.1] text-[#FAF8F3]"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
