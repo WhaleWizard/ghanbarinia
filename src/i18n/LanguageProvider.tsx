@@ -16,15 +16,16 @@ function detectLanguage(): Language {
   if (typeof window === "undefined") return DEFAULT_LANGUAGE;
 
   const saved = window.localStorage.getItem(STORAGE_KEY);
-  if (saved === "en" || saved === "ru") return saved;
+  if (saved === "en" || saved === "ru" || saved === "uz") return saved;
 
-  // Russian is the working language of Tashkent, so anyone whose browser is
-  // set to Russian (or another post-Soviet locale) gets Russian first.
+  // Uzbek is the state language, Russian the working language of Tashkent —
+  // both take precedence over the English default when the browser asks.
   const browser = window.navigator.languages ?? [window.navigator.language];
-  const wantsRussian = browser.some((tag) =>
-    /^(ru|uz|kk|ky|tg|az|be|hy)\b/i.test(tag)
-  );
-  return wantsRussian ? "ru" : DEFAULT_LANGUAGE;
+  for (const tag of browser) {
+    if (/^uz\b/i.test(tag)) return "uz";
+    if (/^(ru|kk|ky|tg|az|be|hy)\b/i.test(tag)) return "ru";
+  }
+  return DEFAULT_LANGUAGE;
 }
 
 interface LanguageContextValue {

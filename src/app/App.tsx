@@ -7,6 +7,7 @@ import { CarpetScrollStory } from "./components/CarpetScrollStory";
 import { Collections } from "./components/Collections";
 import { Craftsmanship } from "./components/Craftsmanship";
 import { Masterworks } from "./components/Masterworks";
+import { Trust } from "./components/Trust";
 import { Showroom } from "./components/Showroom";
 import { Consultation } from "./components/Consultation";
 import { Footer } from "./components/Footer";
@@ -24,6 +25,7 @@ export default function App() {
           <Collections />
           <Craftsmanship />
           <Masterworks />
+          <Trust />
           <Showroom />
           <Consultation />
         </main>

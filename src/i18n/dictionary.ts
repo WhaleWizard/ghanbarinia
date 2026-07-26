@@ -10,6 +10,8 @@
  * see them, how to get in touch.
  */
 
+import { uz } from "./uz";
+
 export const CONTACTS = {
   /* Confirmed by the brand: Tashkent City Mall, 2nd floor, daily 10:00–00:00 */
   phone: "+998 90 029 55 50",
@@ -337,6 +339,37 @@ const en = {
     ],
   },
 
+  trust: {
+    label: "◆ On the record",
+    titleLine1: "Not a claim.",
+    titleLine2: "A record.",
+    intro:
+      "Everything below has been reported by independent press. Each entry links to its source.",
+    source: "Source",
+    items: [
+      {
+        title: "Burj Al Arab",
+        meta: "Dubai",
+        text: "An invitation-only three-day exhibition of the house's antique carpets, including a piece valued at 10 million dirhams.",
+      },
+      {
+        title: "Atlantis The Royal",
+        meta: "Dubai",
+        text: "Antique carpets from $200,000 to $7 million, among them one woven on the orders of Naser al-Din Shah Qajar.",
+      },
+      {
+        title: "The Dubai Mall",
+        meta: "Flagship",
+        text: "The flagship gallery of the house — one of eighteen in the UAE.",
+      },
+      {
+        title: "The National",
+        meta: "2022",
+        text: "\"The magic carpets with five generations of Persian history to tell\" — a profile of the Ghanbarinia family.",
+      },
+    ],
+    reviewsTitle: "What buyers say",
+  },
   showroom: {
     label: "◆ The gallery",
     titleLine1: "The only gallery",
@@ -761,6 +794,37 @@ const ru: Dictionary = {
     ],
   },
 
+  trust: {
+    label: "◆ Задокументировано",
+    titleLine1: "Это не обещание.",
+    titleLine2: "Это факты.",
+    intro:
+      "Всё, что ниже, писала независимая пресса. У каждого пункта есть ссылка на источник.",
+    source: "Источник",
+    items: [
+      {
+        title: "Burj Al Arab",
+        meta: "Дубай",
+        text: "Трёхдневная выставка антикварных ковров дома по личным приглашениям, среди них — ковёр стоимостью 10 миллионов дирхамов.",
+      },
+      {
+        title: "Atlantis The Royal",
+        meta: "Дубай",
+        text: "Антикварные ковры от 200 тысяч до 7 миллионов долларов, включая сотканный по приказу Насер ад-Дин Шаха Каджара.",
+      },
+      {
+        title: "The Dubai Mall",
+        meta: "Флагман",
+        text: "Флагманская галерея дома — одна из восемнадцати в ОАЭ.",
+      },
+      {
+        title: "The National",
+        meta: "2022",
+        text: "«Ковры с пятью поколениями персидской истории» — материал о семье Ганбариния.",
+      },
+    ],
+    reviewsTitle: "Отзывы покупателей",
+  },
   showroom: {
     label: "◆ Галерея",
     titleLine1: "Единственная галерея",
@@ -867,7 +931,7 @@ const ru: Dictionary = {
   },
 };
 
-export const dictionaries = { en, ru };
+export const dictionaries = { en, ru, uz };
 export type Language = keyof typeof dictionaries;
 export type Copy = Dictionary;
-export const languages: Language[] = ["en", "ru"];
+export const languages: Language[] = ["uz", "ru", "en"];

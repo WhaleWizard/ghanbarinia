@@ -16,16 +16,31 @@ npm run build   # production build into dist/
 
 | What | Where |
 | --- | --- |
-| All copy, English and Russian | `src/i18n/dictionary.ts` |
+| Copy, English and Russian | `src/i18n/dictionary.ts` |
+| Copy, Uzbek | `src/i18n/uz.ts` |
 | Address, hours, phone, Telegram, Instagram | `CONTACTS` in `src/i18n/dictionary.ts` |
+| Carpet stock | `src/data/catalogue.ts` |
+| Customer reviews | `src/data/reviews.ts` |
 | Carpet photographs | `public/img/carpets/` |
 | Page sections | `src/app/components/` |
 
 ## Editing the text
 
-Every visible string lives in `src/i18n/dictionary.ts`. English is the reference
-shape: if a key is missing from the Russian copy, `npm run check` fails, so the
-two languages cannot drift apart.
+Every visible string lives in the dictionary. English is the reference shape:
+if a key is missing from the Russian or Uzbek copy, `npm run check` fails, so
+the three languages cannot drift apart.
+
+The Uzbek was written to match the other two and is worth a native
+read-through before it carries a campaign.
+
+## Reviews
+
+`src/data/reviews.ts` is empty on purpose and the section stays hidden until
+it is not. Only add reviews people actually wrote — a site selling carpets at
+these prices is the wrong place for invented ones.
+
+The press entries beside it are a different matter: each links to the
+publication it came from, so a visitor can check it.
 
 ## Replacing the photographs
 

@@ -87,17 +87,38 @@ export function formatSize(carpet: Carpet) {
 /** What each weaving city plausibly produces, so the demo set is not absurd. */
 const PROFILES: Record<
   TraditionId,
-  { materials: MaterialId[]; colours: ColourId[]; knots: [number, number]; image: string }
+  { materials: MaterialId[]; colours: ColourId[]; knots: [number, number] }
 > = {
-  tabriz: { materials: ["wool-silk", "wool"], colours: ["red", "blue", "ivory"], knots: [150, 400], image: "tabriz" },
-  kashan: { materials: ["wool-silk", "wool"], colours: ["red", "blue", "multi"], knots: [100, 400], image: "kashan" },
-  isfahan: { materials: ["wool-silk", "silk"], colours: ["ivory", "blue", "gold"], knots: [200, 600], image: "isfahan" },
-  qom: { materials: ["silk"], colours: ["ivory", "gold", "blue", "green"], knots: [300, 700], image: "qom" },
-  nain: { materials: ["wool-silk"], colours: ["ivory", "blue"], knots: [200, 600], image: "nain" },
-  mashad: { materials: ["wool", "wool-silk"], colours: ["red", "multi"], knots: [120, 250], image: "mashad" },
-  heriz: { materials: ["wool"], colours: ["red", "gold", "multi"], knots: [50, 120], image: "heriz" },
-  shiraz: { materials: ["wool"], colours: ["red", "multi", "blue"], knots: [40, 120], image: "shiraz" },
+  tabriz: { materials: ["wool-silk", "wool"], colours: ["red", "blue", "ivory"], knots: [150, 400] },
+  kashan: { materials: ["wool-silk", "wool"], colours: ["red", "blue", "multi"], knots: [100, 400] },
+  isfahan: { materials: ["wool-silk", "silk"], colours: ["ivory", "blue", "gold"], knots: [200, 600] },
+  qom: { materials: ["silk"], colours: ["ivory", "gold", "blue", "green"], knots: [300, 700] },
+  nain: { materials: ["wool-silk"], colours: ["ivory", "blue"], knots: [200, 600] },
+  mashad: { materials: ["wool", "wool-silk"], colours: ["red", "multi"], knots: [120, 250] },
+  heriz: { materials: ["wool"], colours: ["red", "gold", "multi"], knots: [50, 120] },
+  shiraz: { materials: ["wool"], colours: ["red", "multi", "blue"], knots: [40, 120] },
 };
+
+/**
+ * The photographs the catalogue draws on. The first eight are the signature
+ * shots for each city, so the carousel on the front page keeps them; the rest
+ * are the wider pool that stops the same picture appearing over and over.
+ *
+ * Assignment is `index % POOL.length`, which spreads them perfectly evenly —
+ * the first thirty-two pieces all carry a different photograph, so the opening
+ * page of the catalogue has no repeats at all.
+ */
+const PHOTO_POOL: string[] = [
+  "tabriz",
+  "kashan",
+  "isfahan",
+  "qom",
+  "nain",
+  "mashad",
+  "heriz",
+  "shiraz",
+  ...Array.from({ length: 24 }, (_, i) => `rug-${String(i + 1).padStart(2, "0")}`),
+];
 
 const SIZES: Array<[number, number]> = [
   [80, 120],
@@ -135,7 +156,7 @@ function generateDemoStock(count: number): Carpet[] {
     stock.push({
       id: `GHN-${String(i + 1).padStart(4, "0")}`,
       tradition,
-      image: profile.image,
+      image: PHOTO_POOL[i % PHOTO_POOL.length],
       widthCm: width,
       lengthCm: length,
       material: pick(profile.materials),

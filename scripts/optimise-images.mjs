@@ -22,8 +22,10 @@ const GROUPS = [
     from: "images-source/carpets",
     to: "public/img/carpets",
     // Card and full-screen use; 480 covers phones, 960 covers retina desktop.
+    // Quality 62 rather than 70: with dozens of carpets in the catalogue the
+    // difference is invisible at card size but halves the repository weight.
     widths: [480, 960],
-    quality: 70,
+    quality: 62,
   },
   {
     from: "images-source/hero",
